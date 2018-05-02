@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>首页</title>
+</head>
+<style>
+	div {
+		border: 1px dashed #ddd;
+		padding: 10px;
+		margin: 10px 10px 10px 0px;
+	}
+</style>
+<body>
+	<p>你好！[[${user.userName}]]</p>
+	<h3>权限测试链接</h3>
+	<div>
+		<a th:href="@{/user/list}">获取用户信息</a>
+		<a th:href="@{/user/add}">新增用户</a>
+		<a th:href="@{/user/delete}">删除用户</a>
+	</div>
+	<a th:href="@{/logout}">注销</a>
+</body>
+</html>
