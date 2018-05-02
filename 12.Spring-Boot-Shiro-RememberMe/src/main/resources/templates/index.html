@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>首页</title>
+</head>
+<body>
+	<p>你好！[[${user.userName}]]</p>
+	<a th:href="@{/logout}">注销</a>
+</body>
+</html>
