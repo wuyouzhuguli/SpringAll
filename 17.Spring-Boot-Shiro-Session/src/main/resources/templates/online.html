@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>在线用户管理</title>
+	<script th:src="@{/js/jquery-1.11.1.min.js}"></script>
+	<script th:src="@{/js/dateFormat.js}"></script>
+</head>
+<style>
+	table {
+		margin: 20px 40px 20px 0px;
+		width: 100%;
+		border-collapse: collapse;
+		border-spacing: 0;
+		table-layout: automatic;
+		word-wrap: break-all
+	}
+	table>tbody>tr:nth-of-type(odd) {
+		background-color: #F7F7F7
+	}
+	
+	th, td {
+		padding: 8px;
+		text-align: left;
+		vertical-align: middle;
+		font-weight: normal;
+		font-size: 12px;
+		border-bottom: 1px solid #fff;
+	}
+	
+	th {
+		padding-bottom: 10px;
+	    color: #fff;
+	    font-weight: 700;
+	    background: rgba(66, 185, 131, .9)
+	}
+	
+	td {
+		border-bottom-width: 1px
+	}
+	
+</style>
+<body>
+	<h3>在线用户数：<span id="onlineCount"></span></h3>
+	<table>
+		<tr>
+			<th>序号</th>
+			<th>用户名称</th>
+			<th>登录时间</th>
+			<th>最后访问时间</th>
+			<th>主机</th>
+			<th>状态</th>
+			<th>操作</th>
+		</tr>
+	</table>
+	<a th:href="@{/index}">返回</a>
+</body>
+<script th:inline="javascript">
+	var ctx = [[@{/}]];
+	$.get(ctx + "online/list", {}, function(r){
+		console.log(r);
+		var length = r.length;
+		$("#onlineCount").text(length);
+		var html = "";
+		for(var i = 0; i < length; i++){
+			html += "<tr>"
+				 + "<td>" + (i+1) + "</td>"
+			     + "<td>" + r[i].username + "</td>"
+			     + "<td>" + new Date(r[i].startTimestamp).Format("yyyy-MM-dd hh:mm:ss") + "</td>"
+			     + "<td>" + new Date(r[i].lastAccessTime).Format("yyyy-MM-dd hh:mm:ss") + "</td>"
+			     + "<td>" + r[i].host + "</td>"
+			     + "<td>" + r[i].status + "</td>"
+			     + "<td><a href='#' onclick='offline(\"" + r[i].id + "\",\"" + r[i].status +"\")'>下线</a></td>"
+			     + "</tr>";
+		}
+		$("table").append(html);
+	},"json");
+	
+	function offline(id,status){
+		if(status == "离线"){
+			alert("该用户已是离线状态！！");
+			return;
+		}
+		$.get(ctx + "online/forceLogout", {"id": id}, function(r){
+			if (r.code == 0) {
+				alert('该用户已强制下线！');
+                location.href = ctx + 'online/index';
+            } else {
+				alert(r.msg);
+            }
+		},"json");
+	}
+</script>
+</html>
