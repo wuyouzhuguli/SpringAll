@@ -1,6 +1,8 @@
 ## Spring Boot学习
 该仓库为个人博客[https://mrbird.cc](https://mrbird.cc)中Spring Boot系列源码，如果该系列教程对您有帮助的话，还请点个star给予精神支持！🐤
+
 对应博客目录如下：
+
 1. [开启Spring Boot](https://mrbird.cc/%E5%BC%80%E5%90%AFSpring-Boot.html)
 2. [Spring Boot基础配置](https://mrbird.cc/Spring-Boot%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE.html)
 3. [Spring Boot中使用MyBatis](https://mrbird.cc/Spring-Boot%E4%B8%AD%E4%BD%BF%E7%94%A8Mybatis.html)
@@ -26,4 +28,5 @@
 - [Spring Boot项目打包成war包](https://mrbird.cc/Spring-Boot%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E6%88%90war%E5%8C%85.html)
 - [Linux下部署Spring Boot jar](https://mrbird.cc/Linux%E4%B8%8B%E9%83%A8%E7%BD%B2Spring-Boot-jar.html)
 - [Spring Boot中使用Jsoup防御XSS攻击](https://mrbird.cc/%E4%BD%BF%E7%94%A8Jsoup%E9%98%B2%E5%BE%A1XSS%E6%94%BB%E5%87%BB.html)
+
 持续更新中...
