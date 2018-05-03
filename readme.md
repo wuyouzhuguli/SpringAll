@@ -22,6 +22,7 @@
 17. [Spring Boot Shiro在线会话管理](https://mrbird.cc/Spring-Boot-Shiro%E5%9C%A8%E7%BA%BF%E4%BC%9A%E8%AF%9D%E7%AE%A1%E7%90%86.html)
 18. [Spring Boot中的JSON技术](https://mrbird.cc/Spring-Boot%E4%B8%AD%E7%9A%84JSON%E6%8A%80%E6%9C%AF.html)
 19. [Spring Boot中编写单元测试](https://mrbird.cc/Spring-Boot%E4%B8%AD%E7%BC%96%E5%86%99%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95.html)
+20. [Spring Boot整合Swagger2构建RESTful API](https://mrbird.cc/Spring-Boot整合Swagger2构建RESTful-API.html)
 
 ## 其他没有源码系列
 - [Spring Boot logback日志配置](https://mrbird.cc/Spring-Boot-logback%E6%97%A5%E5%BF%97%E9%85%8D%E7%BD%AE.html)
