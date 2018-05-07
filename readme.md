@@ -23,6 +23,7 @@
 18. [Spring Boot中的JSON技术](https://mrbird.cc/Spring-Boot%20JSON.html)
 19. [Spring Boot中编写单元测试](https://mrbird.cc/Spring-Boot%20TESTing.html)
 20. [Spring Boot整合Swagger2构建RESTful API](https://mrbird.cc/Spring-Boot-Swagger2-RESTful-API.html)
+21. [使用Actuator监控Spring Boot应用](https://mrbird.cc/Acutator-Spring-Boot.html)
 
 ## 其他没有源码系列
 - [Spring Boot logback日志配置](https://mrbird.cc/Spring-Boot-logback.html)
