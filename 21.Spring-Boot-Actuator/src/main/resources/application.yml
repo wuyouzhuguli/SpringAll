@@ -1,0 +1,13 @@
+server:
+  port: 80
+
+management:
+  security:
+    enabled: false #关掉安全认证
+  port: 80
+  context-path: /monitor #actuator的访问路径
+endpoints:
+  shutdown:
+    enabled: true
+  beans:
+    id: instances
