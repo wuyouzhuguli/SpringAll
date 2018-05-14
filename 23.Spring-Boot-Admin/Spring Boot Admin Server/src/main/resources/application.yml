@@ -1,0 +1,23 @@
+server:
+  port: 8080
+  context-path: /admin-server
+  
+spring:
+  mail:
+    host: smtp.163.com
+    username: xxx@163.com
+    password: xxx
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+            
+  boot:
+    admin:
+      notify:
+        mail:
+          from: xxx@163.com
+          to: xxx@qq.com

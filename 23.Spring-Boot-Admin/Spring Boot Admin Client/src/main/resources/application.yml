@@ -1,0 +1,18 @@
+management:
+  security:
+    enabled: false
+    
+server:
+  port: 8081
+  
+spring:
+  boot:
+    admin:
+      url: http://localhost:8080/admin-server
+      
+info: 
+  app:  
+    name: "@project.name@"
+    description: "@project.description@"  
+    version: "@project.version@"  
+    spring-boot-version: "@project.parent.version@" 
