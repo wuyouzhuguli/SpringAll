@@ -25,6 +25,7 @@
 20. [Spring Boot整合Swagger2构建RESTful API](https://mrbird.cc/Spring-Boot-Swagger2-RESTful-API.html)
 21. [使用Actuator监控Spring Boot应用](https://mrbird.cc/Acutator-Spring-Boot.html)
 22. [使用Spring Boot发送邮件](https://mrbird.cc/Spring-Boot-Email.html)
+22. [使用Spring Boot Admin监控服务](https://mrbird.cc/Spring-Boot-Admin.html)
 
 ## 其他没有源码系列
 - [Spring Boot logback日志配置](https://mrbird.cc/Spring-Boot-logback.html)
