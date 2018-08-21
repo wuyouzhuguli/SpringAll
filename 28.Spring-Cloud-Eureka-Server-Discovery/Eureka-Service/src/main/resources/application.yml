@@ -1,0 +1,9 @@
+spring:
+  profiles:
+    active: peer1
+security:
+  basic:
+    enabled: true
+  user:
+    name: mrbird
+    password: 123456
