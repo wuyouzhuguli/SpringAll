@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: Turbine
+server:
+  port: 9003
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://mrbird:123456@peer1:8080/eureka/,http://mrbird:123456@peer2:8081/eureka/
+turbine:
+  app-config: Ribbon-Consumer
+  cluster-name-expression: new String('default')
+  combine-host-port: true
