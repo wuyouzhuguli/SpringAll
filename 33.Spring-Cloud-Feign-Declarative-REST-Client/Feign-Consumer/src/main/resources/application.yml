@@ -1,0 +1,22 @@
+server:
+  port: 9000
+  
+spring:
+  application:
+    name: Server-Consumer
+    
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://mrbird:123456@peer1:8080/eureka/,http://mrbird:123456@peer2:8081/eureka/
+
+feign:
+  hystrix:
+    enabled: true
+logging:
+  level:
+    com:
+      example:
+        demo:
+          service:
+            UserService: debug
