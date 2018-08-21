@@ -1,0 +1,13 @@
+server:
+  port: 8082
+  
+spring:
+  application:
+    name: Server-Provider
+    
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://mrbird:123456@peer1:8080/eureka/,http://mrbird:123456@peer2:8081/eureka/
