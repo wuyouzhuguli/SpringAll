@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: Hystrix-Dashboard
+server:
+  port: 9002

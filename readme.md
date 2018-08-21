@@ -44,6 +44,7 @@
 2. [Spring Cloud Ribbon客户端负载均衡](https://mrbird.cc/Spring-Cloud-Ribbon-LoadBalance.html)
 3. [Spring Cloud Hystrix服务容错](https://mrbird.cc/Spring-Cloud-Hystrix-Circuit-Breaker.html)
 4. [Spring Cloud Hystrix Dashboard仪表盘](https://mrbird.cc/Spring-Cloud-Hystrix-Dashboard.html)
-5. [Spring Cloud Feign 声明式服务调用](https://mrbird.cc/Spring-Cloud-Feign-%20Declarative-REST-Client.html)
+5. [Spring Cloud Hystrix Dashboard仪表盘 & RabbitMQ](https://mrbird.cc/Spring-Cloud-Hystrix-Dashboard.html)
+6. [Spring Cloud Feign 声明式服务调用](https://mrbird.cc/Spring-Cloud-Feign-%20Declarative-REST-Client.html)
 
 持续更新中...

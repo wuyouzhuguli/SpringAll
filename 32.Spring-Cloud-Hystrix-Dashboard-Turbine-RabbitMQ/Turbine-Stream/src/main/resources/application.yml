@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: Turbine
+  rabbitmq:
+      host: localhost
+      port: 5672
+      username: guest
+      password: guest
+server:
+  port: 9003
+
+
