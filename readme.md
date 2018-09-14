@@ -38,6 +38,10 @@
 
 ### Spring Boot & Security教程
 1. [Spring Boot中开启Spring Security](https://mrbird.cc/Spring-Boot&Spring-Security.html)
+2. [Spring Security自定义用户认证](https://mrbird.cc/Spring-Security-Authentication.html)
+3. [Spring Security添加图形验证码](https://mrbird.cc/Spring-Security-ValidateCode.html)
+4. [Spring Security添加记住我功能](https://mrbird.cc/Spring-Security-RememberMe.html)
+5. [Spring Security短信验证码登录](https://mrbird.cc/Spring-Security-SmsCode.html)
 
 ### Spring Cloud教程
 1. [Spring Cloud Eureka服务治理](https://mrbird.cc/Spring-Cloud-Eureka.html)
