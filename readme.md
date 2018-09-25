@@ -50,5 +50,6 @@
 4. [Spring Cloud Hystrix Dashboard仪表盘](https://mrbird.cc/Spring-Cloud-Hystrix-Dashboard.html)
 5. [Spring Cloud Hystrix Dashboard仪表盘 & RabbitMQ](https://mrbird.cc/Spring-Cloud-Hystrix-Dashboard.html)
 6. [Spring Cloud Feign 声明式服务调用](https://mrbird.cc/Spring-Cloud-Feign.html)
+7. [Spring Cloud Zuul服务网关](https://mrbird.cc/Spring-Cloud-Zuul-Router.html)
 
 持续更新中...
