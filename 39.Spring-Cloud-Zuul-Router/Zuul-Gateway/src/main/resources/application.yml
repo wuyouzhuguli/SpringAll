@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: Zuul-Gateway
+server:
+  port: 12580
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://mrbird:123456@peer1:8080/eureka/,http://mrbird:123456@peer2:8081/eureka/
+zuul:
+  routes:
+    api-a:
+      path: /api-a/**
+      url: http://localhost:8082
+    api-b:
+      path: /api-b/**
+      serviceId: server-provider
+    api-c:
+      path: /api-c/**
+      serviceId: server-consumer
+    api-d:
+      path: /api-c/user/1
+      serviceId: lol
+    api-e:
+      path: /api-e/**
+      url: forward:/test
+  ignored-services: server-consumer
+  sensitive-headers:
+  add-host-header: true
