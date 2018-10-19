@@ -1,0 +1,15 @@
+server:
+  port: 8081
+spring:
+  dubbo:
+    application:
+      # 服务名称，保持唯一
+      name: server-consumer
+      # zookeeper地址，用于向其注册服务
+    registry:
+      address: zookeeper://127.0.0.1:2181
+    protocol:
+      # dubbo协议，固定写法
+      name: dubbo
+    # 扫描需要调用服务的类路径
+    scan: cc.mrbird.consumer.controller
