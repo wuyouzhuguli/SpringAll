@@ -26,6 +26,7 @@
 22. [Spring Boot异常处理](https://mrbird.cc/Spring-Boot-Exception.html)
 23. [Spring Boot中使用过滤器和拦截器](https://mrbird.cc/Spring-Boot-Filter-Interceptor.html)
 24. [Spring Boot整合MyBatis通用Mapper和PageHelper](https://mrbird.cc/MyBatis%20common%20Mapper%20PageHelper.html)
+25. [Spring Boot整合Dubbo&Zookeeper](https://mrbird.cc/Spring-Boot-Dubbo-Zookeeper.html)
 
 ### Spring Boot & Shiro教程
 1. [Spring Boot Shiro用户认证](https://mrbird.cc/Spring-Boot-shiro%20Authentication.html)
