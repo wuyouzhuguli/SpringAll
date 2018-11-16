@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: febs
+  cloud:
+    config:
+      profile: dev
+      label: master
+      uri: http://localhost:12580
+      username: mrbird
+      password: 123456
+#      discovery:
+#        enabled: true
+#        service-id: config-server
+
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://mrbird:123456@peer1:8080/eureka/,http://mrbird:123456@peer2:8081/eureka/
+
+server:
+  port: 12581
+management:
+  security:
+    enabled: false
