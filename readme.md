@@ -53,5 +53,6 @@
 6. [Spring Cloud Feign 声明式服务调用](https://mrbird.cc/Spring-Cloud-Feign.html)
 7. [Spring Cloud Zuul服务网关](https://mrbird.cc/Spring-Cloud-Zuul-Router.html)
 8. [Spring Cloud Config统一配置管理](https://mrbird.cc/Spring-Cloud-Config.html)
+9. [使用Spring Cloud Bus刷新配置](https://mrbird.cc/Spring-Cloud-Bus.html)
 
 持续更新中...
