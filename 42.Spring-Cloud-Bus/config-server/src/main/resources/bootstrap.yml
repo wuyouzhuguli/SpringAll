@@ -1,0 +1,9 @@
+#encrypt:
+##  key: hello
+
+#encrypt:
+#  key-store:
+#    location: classpath:config-server.keystore
+#    alias: Config-Server
+#    password: 123456
+#    secret: 654321

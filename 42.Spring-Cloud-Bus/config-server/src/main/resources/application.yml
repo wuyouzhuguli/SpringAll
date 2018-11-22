@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: xxx
+          username: xxx
+          password: xxx
+          search-paths: '{application}'
+          clone-on-start: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+server:
+  port: 12580
+security:
+  user:
+    name: mrbird
+    password: 123456
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://mrbird:123456@peer1:8080/eureka/,http://mrbird:123456@peer2:8081/eureka/
