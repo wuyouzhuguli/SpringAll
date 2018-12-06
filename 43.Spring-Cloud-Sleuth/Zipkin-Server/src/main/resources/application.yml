@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: zipkin-server
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/zipkin?useUnicode=true&characterEncoding=utf-8
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+
+server:
+  port: 9100
+
+zipkin:
+  storage:
+    type: mysql

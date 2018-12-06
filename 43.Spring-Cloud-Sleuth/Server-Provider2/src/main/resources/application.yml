@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: server-provider2
+  zipkin:
+    base-url: http://localhost:9100
+
+  sleuth:
+    sampler:
+      percentage: 1
+
+server:
+  port: 9001
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://mrbird:123456@peer1:8080/eureka/,http://mrbird:123456@peer2:8081/eureka/
