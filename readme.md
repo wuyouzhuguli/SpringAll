@@ -45,15 +45,16 @@
 5. [Spring Security短信验证码登录](https://mrbird.cc/Spring-Security-SmsCode.html)
 
 ### Spring Cloud教程
-1. [Spring Cloud Eureka服务治理](https://mrbird.cc/Spring-Cloud-Eureka.html)
-2. [Spring Cloud Ribbon客户端负载均衡](https://mrbird.cc/Spring-Cloud-Ribbon-LoadBalance.html)
-3. [Spring Cloud Hystrix服务容错](https://mrbird.cc/Spring-Cloud-Hystrix-Circuit-Breaker.html)
-4. [Spring Cloud Hystrix Dashboard仪表盘](https://mrbird.cc/Spring-Cloud-Hystrix-Dashboard.html)
-5. [Spring Cloud Hystrix Dashboard仪表盘 & RabbitMQ](https://mrbird.cc/Spring-Cloud-Hystrix-Dashboard.html)
-6. [Spring Cloud Feign 声明式服务调用](https://mrbird.cc/Spring-Cloud-Feign.html)
-7. [Spring Cloud Zuul服务网关](https://mrbird.cc/Spring-Cloud-Zuul-Router.html)
-8. [Spring Cloud Config统一配置管理](https://mrbird.cc/Spring-Cloud-Config.html)
-9. [使用Spring Cloud Bus刷新配置](https://mrbird.cc/Spring-Cloud-Bus.html)
-10. [使用Spring Cloud Sleuth跟踪微服务](https://mrbird.cc/Spring-Cloud-sleuth.html)
+1. [初识Spring Cloud与微服务](https://mrbird.cc/Spring-Cloud%20and%20MicroService.html)
+2. [Spring Cloud Eureka服务治理](https://mrbird.cc/Spring-Cloud-Eureka.html)
+3. [Spring Cloud Ribbon客户端负载均衡](https://mrbird.cc/Spring-Cloud-Ribbon-LoadBalance.html)
+4. [Spring Cloud Hystrix服务容错](https://mrbird.cc/Spring-Cloud-Hystrix-Circuit-Breaker.html)
+5. [Spring Cloud Hystrix Dashboard仪表盘](https://mrbird.cc/Spring-Cloud-Hystrix-Dashboard.html)
+6. [Spring Cloud Hystrix Dashboard仪表盘 & RabbitMQ](https://mrbird.cc/Spring-Cloud-Hystrix-Dashboard.html)
+7. [Spring Cloud Feign 声明式服务调用](https://mrbird.cc/Spring-Cloud-Feign.html)
+8. [Spring Cloud Zuul服务网关](https://mrbird.cc/Spring-Cloud-Zuul-Router.html)
+9. [Spring Cloud Config统一配置管理](https://mrbird.cc/Spring-Cloud-Config.html)
+10. [使用Spring Cloud Bus刷新配置](https://mrbird.cc/Spring-Cloud-Bus.html)
+11. [使用Spring Cloud Sleuth跟踪微服务](https://mrbird.cc/Spring-Cloud-sleuth.html)
 
 持续更新中...
