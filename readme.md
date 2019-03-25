@@ -26,7 +26,6 @@
 22. [Spring Boot异常处理](https://mrbird.cc/Spring-Boot-Exception.html)
 23. [Spring Boot中使用过滤器和拦截器](https://mrbird.cc/Spring-Boot-Filter-Interceptor.html)
 24. [Spring Boot整合MyBatis通用Mapper和PageHelper](https://mrbird.cc/MyBatis%20common%20Mapper%20PageHelper.html)
-25. [Spring Boot整合Dubbo&Zookeeper](https://mrbird.cc/Spring-Boot-Dubbo-Zookeeper.html)
 26. [深入学习Spring Boot自动装配](https://mrbird.cc/deepin-springboot-autoconfig.html)
 27. [深入学习Spring Boot中的SpringApplication](https://mrbird.cc/deepin-springboot-application.html)
 28. [Spring Boot配合Hibernate Validator参数校验](https://mrbird.cc/Spring-Boot-Hibernate-Validator-Params-Check.html)
@@ -62,6 +61,11 @@
 9. [Spring Cloud Config统一配置管理](https://mrbird.cc/Spring-Cloud-Config.html)
 10. [使用Spring Cloud Bus刷新配置](https://mrbird.cc/Spring-Cloud-Bus.html)
 11. [使用Spring Cloud Sleuth跟踪微服务](https://mrbird.cc/Spring-Cloud-sleuth.html)
+
+### Spring Boot && Dubbo教程
+1. [Spring Boot整合Dubbo&Zookeeper](https://mrbird.cc/Spring-Boot-Dubbo-Zookeeper.html)
+2. [监控Dubbo服务](https://mrbird.cc/dubbo-mointor.html)
+3. [Dubbo的高可用](https://mrbird.cc/Dubbo-High-Availability.html)
 
 ## Spring
 1. [深入学习Spring组件注册](https://mrbird.cc/Spring-Bean-Regist.html)
