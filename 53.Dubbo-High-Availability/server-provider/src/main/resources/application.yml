@@ -1,0 +1,18 @@
+server:
+  port: 8080
+
+dubbo:
+  application:
+    # 服务名称，保持唯一
+    name: server-provider
+    # zookeeper地址，用于向其注册服务
+  registry:
+    address: zookeeper://127.0.0.1:2181
+  #暴露服务方式
+  protocol:
+    # dubbo协议，固定写法
+    name: dubbo
+    # 暴露服务端口 （默认是20880，不同的服务提供者端口不能重复）
+    port: 20880
+  monitor:
+    protocol: registry

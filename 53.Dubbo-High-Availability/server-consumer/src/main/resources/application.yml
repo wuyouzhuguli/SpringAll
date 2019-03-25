@@ -1,0 +1,15 @@
+server:
+  port: 8081
+
+dubbo:
+  application:
+    # 服务名称，保持唯一
+    name: server-consumer
+    # zookeeper地址，用于从中获取注册的服务
+  registry:
+    address: zookeeper://127.0.0.1:2181
+  protocol:
+    # dubbo协议，固定写法
+    name: dubbo
+  monitor:
+    protocol: registry
