@@ -1,0 +1,90 @@
+##Licensed to the Apache Software Foundation (ASF) under one or more
+##contributor license agreements.  See the NOTICE file distributed with
+##this work for additional information regarding copyright ownership.
+##The ASF licenses this file to You under the Apache License, Version 2.0
+##(the "License"); you may not use this file except in compliance with
+##the License.  You may obtain a copy of the License at
+##
+##http://www.apache.org/licenses/LICENSE-2.0
+##
+##Unless required by applicable law or agreed to in writing, software
+##distributed under the License is distributed on an "AS IS" BASIS,
+##WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+##See the License for the specific language governing permissions and
+##limitations under the License.
+#set($layout = "/templates/governance/layout/default.vm")
+<div class="ico_btn">
+    #if($currentUser.role != "G")
+        <a href="overrides/add"><img src="$rootContextPath.getURI("images/ico_add.png")" width="9" height="9"/><span
+                class="ico_font">#springMessageText("add", "add")</span></a>
+        <span class="ico_line">|</span>
+        <a href="#" onclick="if(! hasCheckbox('ids')) { showAlert('#springMessageText(
+            "empty.list","empty.list")'); } else if(! hasChecked('ids')) { showAlert('#springMessageText(
+            "please.select","please.select")'); } else { showConfirm('#springMessageText(
+            "confirm.batch.delete","confirm.batch.delete")', 'overrides/' + getChecked('ids') + '/delete'); } return false;"><img
+                src="$rootContextPath.getURI("images/ico_delete.png")" width="12" height="12"/><span
+                class="ico_font">#springMessageText("batch.delete", "batch.delete")</span></a>
+    #end
+</div>
+<br/>
+<table cellpadding="0" cellspacing="0" class="list list_dubbo" id="table_o">
+    <tr>
+        <th width="20"><input type="checkbox" onclick="checkAll('table_o', 'ids', this.checked)"/></th>
+        #if(!$service)
+            <th>#springMessageText("service", "service")</th>
+        #end
+        <th>#springMessageText("application", "application")</th>
+        <th>#springMessageText("address", "address")</th>
+        <th>#springMessageText("parameters", "parameters")</th>
+        <th>#springMessageText("status", "status")</th>
+        #if($currentUser.role != "G")
+            <th>#springMessageText("operation", "operation")</th>#end
+    </tr>
+    #foreach($override in $overrides)
+        <tr>
+            <td><input type="checkbox" name="ids" value="$override.id"/></td>
+            #if(!$service)
+                <td><a href="overrides/$override.id">$override.service</a></td>
+            #end
+            <td>$!override.application</td>
+            <td>$!override.address</td>
+            <td>$!tool.decodeUrl($override.params)</td>
+            <td>
+                #if($override.enabled)
+                    <font color="green">#springMessageText("enabled", "enabled")</font>
+                #else
+                    <font color="red">#springMessageText("disabled", "disabled")</font>
+                #end
+            </td>
+            #if($currentUser.role != "G")
+                <td>
+                    <a href="overrides/$override.id">
+                        <img src="$rootContextPath.getURI("images/ico_show.png")" width="13" height="13"/>
+                        <span class="ico_font">#springMessageText("show", "show")</span></a>
+                    <span class="ico_line">|</span>
+                    <a href="overrides/$override.id/edit">
+                        <img src="$rootContextPath.getURI("images/ico_edit.png")" width="13" height="13"/>
+                        <span class="ico_font">#springMessageText("edit", "edit")</span></a>
+                    <span class="ico_line">|</span>
+                    #if($override.enabled)
+                        <a href="#" onclick="showConfirm('#springMessageText(
+                            "confirm.disable","confirm.disable")', '$override.application - $override.address', 'overrides/$override.id/disable'); return false;"><img
+                                src="$rootContextPath.getURI("images/ico_disable.png")" width="12" height="12"/><span
+                                class="ico_font">#springMessageText("disable", "disable")</span></a>
+                    #else
+                        <a href="#" onclick="showConfirm('#springMessageText(
+                            "confirm.enable","confirm.enable")', '$override.application - $override.address', 'overrides/$override.id/enable'); return false;"><img
+                                src="$rootContextPath.getURI("images/ico_enable.png")" width="12" height="12"/><span
+                                class="ico_font">#springMessageText("enable", "enable")</span></a>
+                    #end
+                    <span class="ico_line">|</span>
+                    <a href="#" onclick="showConfirm('#springMessageText(
+                        "confirm.delete","confirm.delete")', '$override.id', 'overrides/$override.id/delete'); return false;">
+                        <img src="$rootContextPath.getURI("images/ico_delete.png")" width="12" height="12"/>
+                        <span class="ico_font">#springMessageText("delete", "delete")</span></a>
+                </td>
+            #end
+        </tr>
+    #end
+</table>
+<div class="page">#springMessageText("page.total", "page.total")$overrides.size()#springMessageText("page.records", "page.records") </div>

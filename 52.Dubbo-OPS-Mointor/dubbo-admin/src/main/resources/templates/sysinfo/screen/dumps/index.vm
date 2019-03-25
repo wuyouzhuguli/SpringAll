@@ -1,0 +1,76 @@
+##Licensed to the Apache Software Foundation (ASF) under one or more
+##contributor license agreements.  See the NOTICE file distributed with
+##this work for additional information regarding copyright ownership.
+##The ASF licenses this file to You under the Apache License, Version 2.0
+##(the "License"); you may not use this file except in compliance with
+##the License.  You may obtain a copy of the License at
+##
+##http://www.apache.org/licenses/LICENSE-2.0
+##
+##Unless required by applicable law or agreed to in writing, software
+##distributed under the License is distributed on an "AS IS" BASIS,
+##WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+##See the License for the specific language governing permissions and
+##limitations under the License.
+#set($layout = "/templates/sysinfo/layout/default.vm")
+<div class="ico_btn">
+</div>
+<br/>
+<table cellpadding="0" cellspacing="0" class="list list_dubbo" id="table_o">
+    <tr>
+        <th>#springMessageText("property.name", "property.name"): <input type="text" onkeyup="searchTable('table_o', 0, this.value);"
+                                               onclick="searchTable('table_o', 0, this.value);"/>&nbsp;<img
+                src="$rootContextPath.getURI("images/ico_search.png")" width="12" height="12"/></th>
+        <th>#springMessageText("property.count", "property.count")</th>
+    </tr>
+    <tr>
+        <td>
+            #springMessageText("noProvider", "noProvider")
+        </td>
+        <td>
+            <a herf="#" onclick="window.open('$rootContextPath.getURI("/sysinfo/dump/noProviders")')">#springMessageText(
+                "property.count","property.count")
+                ($noProviderServices.size())</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            #springMessageText("services", "services")
+        </td>
+        <td>
+            <a herf="#" onclick="window.open('$rootContextPath.getURI("/sysinfo/dump/services")')">#springMessageText(
+                "property.count","property.count")
+                ($services.size())</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            #springMessageText("providers", "providers")
+        </td>
+        <td>
+            <a herf="#" onclick="window.open('$rootContextPath.getURI("/sysinfo/dump/providers")')">#springMessageText(
+                "property.count","property.count")
+                ($providers.size())</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            #springMessageText("consumers", "consumers")
+        </td>
+        <td>
+            <a herf="#" onclick="window.open('$rootContextPath.getURI("/sysinfo/dump/consumers")')">#springMessageText(
+                "property.count","property.count")
+                ($consumers.size())</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            #springMessageText("versions", "versions")
+        </td>
+        <td>
+            #set ($client=$providers.size()+$consumers.size())
+            <a herf="#" onclick="window.open('$rootContextPath.getURI("/sysinfo/dump/versions")')">#springMessageText(
+                "property.count","property.count")($client)</a>
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,2 @@
+registry=com.alibaba.dubbo.monitor.simple.container.RegistryContainer
+jetty-monitor=com.alibaba.dubbo.monitor.simple.container.JettyContainer

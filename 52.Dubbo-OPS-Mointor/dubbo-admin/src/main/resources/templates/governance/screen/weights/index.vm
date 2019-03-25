@@ -1,0 +1,69 @@
+##Licensed to the Apache Software Foundation (ASF) under one or more
+##contributor license agreements.  See the NOTICE file distributed with
+##this work for additional information regarding copyright ownership.
+##The ASF licenses this file to You under the Apache License, Version 2.0
+##(the "License"); you may not use this file except in compliance with
+##the License.  You may obtain a copy of the License at
+##
+##http://www.apache.org/licenses/LICENSE-2.0
+##
+##Unless required by applicable law or agreed to in writing, software
+##distributed under the License is distributed on an "AS IS" BASIS,
+##WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+##See the License for the specific language governing permissions and
+##limitations under the License.
+#set($layout = "/templates/governance/layout/default.vm")
+<div class="ico_btn">
+    #if($currentUser.role != "G")
+        <a href="weights/add"><img src="$rootContextPath.getURI("images/ico_add.png")"
+                                                                     width="9" height="9"/><span
+                class="ico_font">#springMessageText("add", "add")</span></a>
+        <span class="ico_line">|</span>
+        <a href="#" onclick="if(! hasCheckbox('ids')) { showAlert('#springMessageText(
+            "empty.list","empty.list")'); } else if(! hasChecked('ids')) { showAlert('#springMessageText(
+            "please.select","please.select")'); } else { showConfirm('#springMessageText(
+            "confirm.batch.delete","confirm.batch.delete")', 'weights/' + getChecked('ids') + '/delete'); } return false;"><img
+                src="$rootContextPath.getURI("images/ico_delete.png")" width="12" height="12"/><span
+                class="ico_font">#springMessageText("batch.delete", "batch.delete")</span></a>
+    #end
+</div>
+<br/>
+<table cellpadding="0" cellspacing="0" class="list list_dubbo" id="table_o">
+    <tr>
+        <th width="20"><input type="checkbox" onclick="checkAll('table_o', 'ids', this.checked)"/></th>
+        <th>#springMessageText("address", "address"): <input type="text" onkeyup="searchTable('table_o', 1, this.value);"
+                                         onclick="searchTable('table_o', 1, this.value);"/>&nbsp;<img
+                src="$rootContextPath.getURI("images/ico_search.png")" width="12" height="12"/></th>
+        #if(! $service)
+            <th>#springMessageText("service", "service"): <input type="text" onkeyup="searchTable('table_o', 2, this.value);"
+                                             onclick="searchTable('table_o', 2, this.value);"/>&nbsp;<img
+                    src="$rootContextPath.getURI("images/ico_search.png")" width="12" height="12"/></th>
+        #end
+        <th width="50">#springMessageText("weights", "weights")</th>
+        #if($currentUser.role != "G")
+            <th width="135">#springMessageText("operation", "operation")</th>#end
+    </tr>
+    #foreach($weight in $weights)
+        <tr>
+            <td><input type="checkbox" name="ids" value="$weight.id"/></td>
+            <td>$weight.address</td>
+            #if(! $service)
+                <td><a href="services/$weight.service/weights">$weight.service</a></td>
+            #end
+            <td>$weight.weight</td>
+            #if($currentUser.role != "G")
+                <td>
+                    <a href="weights/$weight.id/edit">
+                        <img src="$rootContextPath.getURI("images/ico_edit.png")" width="13" height="13"/>
+                        <span class="ico_font">#springMessageText("edit", "edit")</span></a>
+                    <span class="ico_line">|</span>
+                    <a href="#" onclick="showConfirm('#springMessageText(
+                        "confirm.delete","confirm.delete")', '$weight.address', 'weights/$weight.id/delete'); return false;">
+                        <img src="$rootContextPath.getURI("images/ico_delete.png")" width="12" height="12"/>
+                        <span class="ico_font">#springMessageText("delete", "delete")</span></a>
+                </td>
+            #end
+        </tr>
+    #end
+</table>
+<div class="page">#springMessageText("page.total", "page.total")$weights.size()#springMessageText("page.records", "page.records") </div>

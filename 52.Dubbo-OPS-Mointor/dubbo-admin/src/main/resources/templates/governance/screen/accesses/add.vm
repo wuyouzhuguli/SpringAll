@@ -1,0 +1,108 @@
+##Licensed to the Apache Software Foundation (ASF) under one or more
+##contributor license agreements.  See the NOTICE file distributed with
+##this work for additional information regarding copyright ownership.
+##The ASF licenses this file to You under the Apache License, Version 2.0
+##(the "License"); you may not use this file except in compliance with
+##the License.  You may obtain a copy of the License at
+##
+##http://www.apache.org/licenses/LICENSE-2.0
+##
+##Unless required by applicable law or agreed to in writing, software
+##distributed under the License is distributed on an "AS IS" BASIS,
+##WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+##See the License for the specific language governing permissions and
+##limitations under the License.
+#set($layout = "/templates/governance/layout/default.vm")
+<div class="ico_btn">
+    <a href="../accesses"><img src="$rootContextPath.getURI("images/ico_back.png")" width="12" height="12"/><span
+            class="ico_font">#springMessageText("back", "back")</span></a>
+</div>
+<br/>
+<form id="accessesForm" action="../accesses/create" method="POST">
+    <table cellpadding="0" cellspacing="0" class="info">
+        <tr>
+            <th width="100">#springMessageText("service", "service")&nbsp;&nbsp;<font color='red'>*</font></th>
+            <td>
+                #if($service)
+                    <input type="hidden" id="serviceName" name="service" value="$service"/>$service
+                #else
+                    <textarea id="serviceName" name="service" style="ime-mode:disabled" rows="2" cols="40"></textarea>
+                    #if ($serviceList && $serviceList.size() > 0)
+                        <select id="selectService" name="selectService" onchange="fnSetService(this)">
+                            <option value="">#springMessageText("Choose", "Choose")</option>
+                            #foreach ($s in $serviceList)
+                                <option value="$s">$tool.getSimpleName($s)</option>
+                            #end
+                        </select>
+                    #end
+                #end
+            </td>
+        </tr>
+        <tr>
+            <th style="width: 100px;">#springMessageText("ConsumerAddress", "ConsumerAddress"):&nbsp;&nbsp;<font color='red'>*</font></th>
+            <td>
+                #if($address)
+                    <input type="hidden" id="address" name="address"
+                           value="$tool.getIP($address)"/>$tool.getIP($address)
+                #else
+                    <textarea id="consumerAddress" name="consumerAddress" rows="2" cols="40"></textarea>
+                #end
+                <font color="blue">#springMessageText("BatchAddressTip", "BatchAddressTip")</font>
+            </td>
+        </tr>
+        <tr>
+            <th>#springMessageText("status", "status"):</th>
+            <td>
+                <select id="allow" name="allow">
+                    <option value="false" selected="selected">#springMessageText("Forbidden", "Forbidden")</option>
+                    <option value="true">#springMessageText("Allowed", "Allowed")</option>
+                </select>
+                <font color="blue">#springMessageText("AccessControlTip", "AccessControlTip")</font>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <div class="btn"><a href="#"
+                                    onclick="if(check()){document.getElementById('accessesForm').submit();}">#springMessageText(
+                    "save","save")</a></div>
+            </th>
+            <td></td>
+        </tr>
+    </table>
+</form>
+
+
+<script language="javascript">
+    //通过服务名后面的选择框，快速设置service_name的值
+    function fnSetService(obj) {
+        if (obj.value != '') {
+            byId('serviceName').value = (byId('serviceName').value.length > 0 ? byId('serviceName').value + "\n" : "" ) + obj.value;
+        }
+    }
+
+    function check() {
+        var serviceName = byId('serviceName').value.trim();
+        if (serviceName == '') {
+            showAlert("#springMessageText("PleaseInput", "PleaseInput")#springMessageText("service", "service")", 'serviceName');
+            return false;
+        }
+        var consumerAddress = byId('consumerAddress').value.trim();
+        if (consumerAddress == '') {
+            showAlert("#springMessageText("PleaseInput", "PleaseInput")#springMessageText("ConsumerAddress", "ConsumerAddress")", 'consumerAddress');
+            return false;
+        }
+        var exp = /^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$/;
+        var exp2 = /^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.\*$/;
+        var addresses = consumerAddress.split("\n");
+        for (var i = 0; i < addresses.length; i++) {
+            var address = addresses[i];
+            if (address != "") {
+                if (!address.match(exp) && !address.match(exp2)) {
+                    showAlert("#springMessageText("InvalidIp", "InvalidIp")", 'consumerAddress');
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+</script>

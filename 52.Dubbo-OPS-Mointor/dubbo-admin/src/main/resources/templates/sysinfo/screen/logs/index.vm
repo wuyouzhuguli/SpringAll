@@ -1,0 +1,55 @@
+##Licensed to the Apache Software Foundation (ASF) under one or more
+##contributor license agreements.  See the NOTICE file distributed with
+##this work for additional information regarding copyright ownership.
+##The ASF licenses this file to You under the Apache License, Version 2.0
+##(the "License"); you may not use this file except in compliance with
+##the License.  You may obtain a copy of the License at
+##
+##http://www.apache.org/licenses/LICENSE-2.0
+##
+##Unless required by applicable law or agreed to in writing, software
+##distributed under the License is distributed on an "AS IS" BASIS,
+##WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+##See the License for the specific language governing permissions and
+##limitations under the License.
+#set($layout = "/templates/sysinfo/layout/default.vm")
+<div class="ico_btn">
+    #if($currentUser.role == "R")
+        <select id="logLevel" name="logLevel" onchange="changeLevel(this.value);">
+            <option value="ALL" #if($level == "ALL")selected="selected"#end>ALL</option>
+            <option value="TRACE" #if($level == "TRACE")selected="selected"#end>TRACE</option>
+            <option value="DEBUG" #if($level == "DEBUG")selected="selected"#end>DEBUG</option>
+            <option value="INFO" #if($level == "INFO")selected="selected"#end>INFO</option>
+            <option value="WARN" #if($level == "WARN")selected="selected"#end>WARN</option>
+            <option value="ERROR" #if($level == "ERROR")selected="selected"#end>ERROR</option>
+            <option value="OFF" #if($level == "OFF")selected="selected"#end>OFF</option>
+        </select>
+        <a href="#" onclick="showConfirm('#springMessageText(
+            "logs.confirmChangeLogLevel","logs.confirmChangeLogLevel")', '/sysinfo/logs/change?level=' + document.getElementById('logLevel').value);">
+            <img src="$rootContextPath.getURI("images/ico_enable.png")" width="12" height="12"/><span
+                class="ico_font">#springMessageText("change.log.level", "change.log.level")</span>
+        </a>
+    #end
+</div>
+<br/>
+<table cellpadding="0" cellspacing="0" class="list list_dubbo" id="table_o">
+    <tr>
+        <th>
+            #springMessageText("logs.file", "logs.file"): $name (#springMessageText("logs.size", "logs.size"): $size / #springMessageText(
+            "logs.modify","logs.modify"): $modified) #springMessageText("logs.level", "logs.level"): $level
+            : <input type="text" onkeyup="searchTable('table_o', 0, this.value);"
+                     onclick="searchTable('table_o', 0, this.value);"/>&nbsp;<img
+                src="$rootContextPath.getURI("images/ico_search.png")" width="12" height="12"/>
+        </th>
+    </tr>
+    <tr>
+        <td id="logContent">$tool.unescape($!content.replaceAll("\n", "</td></tr><tr><td>"))</td>
+    </tr>
+    <tr>
+        #if($paginatorBar)
+            <th style="text-align: right;">
+                $tool.unescape($!paginatorBar)
+            </th>
+        #end
+    </tr>
+</table>

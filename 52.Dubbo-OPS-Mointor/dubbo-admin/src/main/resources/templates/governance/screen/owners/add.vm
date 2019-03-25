@@ -1,0 +1,71 @@
+##Licensed to the Apache Software Foundation (ASF) under one or more
+##contributor license agreements.  See the NOTICE file distributed with
+##this work for additional information regarding copyright ownership.
+##The ASF licenses this file to You under the Apache License, Version 2.0
+##(the "License"); you may not use this file except in compliance with
+##the License.  You may obtain a copy of the License at
+##
+##http://www.apache.org/licenses/LICENSE-2.0
+##
+##Unless required by applicable law or agreed to in writing, software
+##distributed under the License is distributed on an "AS IS" BASIS,
+##WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+##See the License for the specific language governing permissions and
+##limitations under the License.
+#set($layout = "/templates/governance/layout/default.vm")
+<div class="ico_btn">
+    <a href="../owners"><img src="$rootContextPath.getURI("images/ico_back.png")" width="12" height="12"/><span
+            class="ico_font">#springMessageText("back", "back")</span></a>
+</div>
+<br/>
+<form id="df" action="create" method="POST">
+    <table cellpadding="0" cellspacing="0" class="info">
+        <tr>
+            <th style="width: 150px;">#springMessageText("service", "service")&nbsp;&nbsp;<font color='red'>*</font></th>
+            <td>
+                #if($service)
+                    <input type="hidden" id="serviceName" name="service" value="$service"/>$service
+                #else
+                    <input id="serviceName" name="service" rows="5" cols="40" maxlength="200">
+                    #if ($serviceList && $serviceList.size() > 0)
+                        <select id="selectService" name="selectService" onchange="fnSetService(this)">
+                            <option value="">#springMessageText("Choose", "Choose")</option>
+                            #foreach ($s in $serviceList)
+                                <option value="$s">$tool.getSimpleName($s)</option>
+                            #end
+                        </select>
+                    #end
+                #end
+            </td>
+        </tr>
+        <tr>
+            <th style="width: 150px;">#springMessageText("Username", "Username")&nbsp;&nbsp;<font color='red'>*</font></th>
+            <td><input type="text" id="username" name="username" style="ime-mode:disabled" value="$operator"
+                       maxlength="100"/></td>
+        </tr>
+        <tr>
+            <th>
+                <div class="btn"><a href="#" onclick="if(check()){document.getElementById('df').submit();}">#springMessageText(
+                    "save","save")</a></div>
+            </th>
+            <td></td>
+        </tr>
+    </table>
+</form>
+<script language="javascript">
+    function check() {
+        var username = byId('username').value.trim();
+        if (username == '') {
+            showAlert("#springMessageText("PleaseInput", "PleaseInput")#springMessageText("Username", "Username")", 'username');
+            return false;
+        }
+        return true;
+    }
+
+    function fnSetService(obj) {
+        if (obj.value != '') {
+            byId('serviceName').value = obj.value;
+        }
+    }
+
+</script>

@@ -1,0 +1,183 @@
+##Licensed to the Apache Software Foundation (ASF) under one or more
+##contributor license agreements.  See the NOTICE file distributed with
+##this work for additional information regarding copyright ownership.
+##The ASF licenses this file to You under the Apache License, Version 2.0
+##(the "License"); you may not use this file except in compliance with
+##the License.  You may obtain a copy of the License at
+##
+##http://www.apache.org/licenses/LICENSE-2.0
+##
+##Unless required by applicable law or agreed to in writing, software
+##distributed under the License is distributed on an "AS IS" BASIS,
+##WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+##See the License for the specific language governing permissions and
+##limitations under the License.
+#set($layout = "/templates/governance/layout/default.vm")
+<div class="ico_btn">
+    <a href="../overrides"><img src="$rootContextPath.getURI("images/ico_back.png")" width="12" height="12"/><span
+            class="ico_font">#springMessageText("back", "back")</span></a>
+    <span class="ico_line">|</span>
+    <a href="$override.id/edit">
+        <img src="$rootContextPath.getURI("images/ico_edit.png")" width="13" height="13"/>
+        <span class="ico_font">#springMessageText("edit", "edit")</span></a>
+    <span class="ico_line">|</span>
+    <a href="#"
+       onclick="showConfirm('#springMessageText("confirm.delete", "confirm.delete")', '$override.id', '$override.id/delete'); return false;">
+        <img src="$rootContextPath.getURI("images/ico_delete.png")" width="12" height="12"/>
+        <span class="ico_font">#springMessageText("delete", "delete")</span></a>
+</div>
+<br/>
+
+<table cellpadding="0" cellspacing="0" class="info" id="dynamicTable">
+    <tr>
+        <td style="width: 100px;"><b>#springMessageText("service", "service"):</b></td>
+        <td style="width: 300px;">$override.service</td>
+    </tr>
+    <tr>
+        <td><b>#springMessageText("status", "status"): <b></td>
+        <td>
+            #if($override.enabled)
+				#springMessageText("enable", "enable")
+			#else
+                #springMessageText("disable", "disable")
+            #end
+        </td>
+    </tr>
+    <tr>
+        <td style="width: 100px;"><b>#springMessageText("application", "application")</b></td>
+        <td>$!override.application</td>
+    </tr>
+    <tr>
+        <td style="width: 100px;"><b>#springMessageText("clientAddress", "clientAddress")</b></td>
+        <td>$!override.address</td>
+    </tr>
+</table>
+<br>
+
+<hr>
+<b>#springMessageText("override.config", "override.config")</b>
+<br>
+<table cellpadding="0" cellspacing="0" class="info" id="paramTable">
+    #foreach($p in $parameters.entrySet())
+        <tr id="paramTable.old.$velocityCount">
+            <td style="width: 150px;"><b>#springMessageText("parameter.key", "parameter.key"): </b> $p.key</td>
+            <td><b>#springMessageText("parameter.value", "parameter.value"): </b> $p.value
+            </td>
+        </tr>
+    #end
+</table>
+
+<br>
+<br>
+<hr>
+
+<b>#springMessageText("override.mock", "override.mock")</b>
+<br>
+<table cellpadding="0" cellspacing="0" class="info" id="mockTable">
+    #if($mockDefaultMethodJson)
+        <tr>
+            <td style="width: 150px;"><b>#springMessageText("mock.all.method", "mock.all.method"):</b>
+            </th>
+            <td>
+                #if($mockDefaultMethodForce == "force")
+                    #springMessageText("force.mock", "force.mock")
+                #else
+                    #springMessageText("fail.mock", "fail.mock")
+                #end
+                :
+                $mockDefaultMethodJson
+            </td>
+        </tr>
+    #end
+    #foreach($m in $methodJsons.entrySet())
+        <td><b>#springMessageText("mock.method", "mock.method")<font color="orange"><code>${m.key}</code></font>#springMessageText("mock.value", "mock.value"):</b>
+        </td>
+        <td>
+            #if($methodForces.get($m.key) == "force")
+                #springMessageText("force.mock", "force.mock")
+            #else
+                #springMessageText("fail.mock", "fail.mock")
+            #end
+            :
+            $m.value
+        </td>
+        </tr>
+    #end
+</table>
+<br/>
+<hr><br/>
+</form>
+
+
+<script language="javascript">
+    function fnSetService(obj) {
+        if (obj.value != '') {
+            document.getElementById('service').value = obj.value;
+        }
+    }
+
+    function check() {
+        var service = byId('service').value.trim();
+        if (service == '') {
+            showAlert("#springMessageText("PleaseInput", "PleaseInput"), #springMessageText("service", "service"))", 'service');
+            return false;
+        }
+        return true;
+    }
+
+    function ismaxlength(obj) {
+        var mlength = obj.getAttribute ? parseInt(obj.getAttribute("maxlength")) : ""
+        if (obj.getAttribute && obj.value.length > mlength)
+            showAlert("content maxlength is " + mlength + "!", 'docContent');
+        return false;
+    }
+
+    function imposeMaxLength(obj) {
+        var mlength = obj.getAttribute ? parseInt(obj.getAttribute("maxlength")) : ""
+        return (obj.value.length < mlength);
+    }
+
+
+    var paramTRLastIndex = 1; // 行号
+
+    function paramTableAddRow() {
+        var table = byId("paramTable");
+        var newTR = table.insertRow(table.rows.length);
+        newTR.id = "paramTable" + paramTRLastIndex;
+
+        var newNameTH = document.createElement('th');
+
+        var newNameTD = newTR.insertCell(0);
+        newNameTD.innerHTML = "<b>参数名: </b><input name='overrideKey" + paramTRLastIndex + "' id='overrideKey" + paramTRLastIndex + "' type='text' style='width: 100px;' />";
+        var newMockTD = newTR.insertCell(1);
+        newMockTD.innerHTML = "<b>参数值: </b><input type='text' id='overrideValue" + paramTRLastIndex + "' name='overrideValue" + paramTRLastIndex + "' class='setting_input' style='width: 500px;' value='' maxlength='200'/>"
+                + "&nbsp;<a href='javascript:;' onclick=\"tableDeleteRow('paramTable', 'paramTable" + paramTRLastIndex + "'); return false;\">删除</a>";
+
+        paramTRLastIndex++; //将行号推进下一行
+    }
+
+    var mockTRLastIndex = 1; // 行号
+
+    function mockTableAddRow() {
+        var table = byId("mockTable");
+        var newTR = table.insertRow(table.rows.length);
+        newTR.id = "mockTable" + mockTRLastIndex;
+
+        var newNameTH = document.createElement('th');
+
+        var newNameTD = newTR.insertCell(0);
+        newNameTD.innerHTML = "<b>方法名：</b><input name='mockMethodName" + mockTRLastIndex + "' id='mockMethodName" + mockTRLastIndex + "' type='text' style='width: 100px;' />";
+        var newMockTD = newTR.insertCell(1);
+        newMockTD.innerHTML = "<b>Mock值：</b><input name='mockMethodJson" + mockTRLastIndex + "' id='mockMethodJson" + mockTRLastIndex + "' type='text' style='width: 500px;' />"
+                + "&nbsp;<a href='javascript:;' onclick=\"tableDeleteRow('mockTable', 'mockTable" + mockTRLastIndex + "'); return false;\">删除</a>";
+
+        mockTRLastIndex++; //将行号推进下一行
+    }
+
+    function tableDeleteRow(tableid, rowid) {
+        var table = byId(tableid);
+        var row = byId(rowid);
+
+        table.deleteRow(row.rowIndex);
+    }
+</script>

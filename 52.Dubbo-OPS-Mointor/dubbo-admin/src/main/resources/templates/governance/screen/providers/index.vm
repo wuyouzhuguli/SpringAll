@@ -1,0 +1,182 @@
+##Licensed to the Apache Software Foundation (ASF) under one or more
+##contributor license agreements.  See the NOTICE file distributed with
+##this work for additional information regarding copyright ownership.
+##The ASF licenses this file to You under the Apache License, Version 2.0
+##(the "License"); you may not use this file except in compliance with
+##the License.  You may obtain a copy of the License at
+##
+##http://www.apache.org/licenses/LICENSE-2.0
+##
+##Unless required by applicable law or agreed to in writing, software
+##distributed under the License is distributed on an "AS IS" BASIS,
+##WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+##See the License for the specific language governing permissions and
+##limitations under the License.
+#set($layout = "/templates/governance/layout/default.vm")
+<div class="ico_btn">
+    #if($currentUser.role != "G")
+        <a href="providers/add"><img src="$rootContextPath.getURI("images/ico_add.png")" width="12" height="12"/><span
+                class="ico_font">#springMessageText("add", "add")</span></a>
+        <span class="ico_line">|</span>
+        <a href="#" onclick="if(! hasCheckbox('ids')) { showAlert('#springMessageText(
+            "empty.list","empty.list")'); } else if(! hasChecked('ids')) { showAlert('#springMessageText(
+            "please.select","please.select")'); } else { showConfirm('#springMessageText(
+            "confirm.batch.weight.doubling","confirm.batch.weight.doubling")', 'providers/' + getChecked('ids') + '/doubling' );} return false;"><img
+                src="$rootContextPath.getURI("images/ico_up.png")" width="12" height="12"/><span
+                class="ico_font">#springMessageText("batch.weight.doubling", "batch.weight.doubling")</span></a>
+        <span class="ico_line">|</span>
+        <a href="#" onclick="if(! hasCheckbox('ids')) { showAlert('#springMessageText(
+            "empty.list","empty.list")'); } else if(! hasChecked('ids')) { showAlert('#springMessageText(
+            "please.select","please.select")'); } else { showConfirm('#springMessageText(
+            "confirm.batch.weight.halving","confirm.batch.weight.halving")', 'providers/' + getChecked('ids') + '/halving' );} return false;"><img
+                src="$rootContextPath.getURI("images/ico_down.png")" width="12" height="12"/><span
+                class="ico_font">#springMessageText("batch.weight.halving", "batch.weight.halving")</span></a>
+        <span class="ico_line">|</span>
+        <a href="#" onclick="if(! hasCheckbox('ids')) { showAlert('#springMessageText(
+            "empty.list","empty.list")'); } else if(! hasChecked('ids')) { showAlert('#springMessageText(
+            "please.select","please.select")'); } else { showConfirm('#springMessageText(
+            "confirm.batch.disable","confirm.batch.disable")', 'providers/' + getChecked('ids') + '/disable' );} return false;"><img
+                src="$rootContextPath.getURI("images/ico_disable.png")" width="12" height="12"/><span
+                class="ico_font">#springMessageText("batch.disable", "batch.disable")</span></a>
+        <span class="ico_line">|</span>
+        <a href="#" onclick="if(! hasCheckbox('ids')) { showAlert('#springMessageText(
+            "empty.list","empty.list")'); } else if(! hasChecked('ids')) { showAlert('#springMessageText(
+            "please.select","please.select")'); } else { showConfirm('#springMessageText(
+            "confirm.batch.enable","confirm.batch.enable")', 'providers/' + getChecked('ids') + '/enable' );} return false;"><img
+                src="$rootContextPath.getURI("images/ico_enable.png")" width="12" height="12"/><span
+                class="ico_font">#springMessageText("batch.enable", "batch.enable")</span></a>
+        <span class="ico_line">|</span>
+        <a href="#" onclick="if(! hasCheckbox('ids')) { showAlert('#springMessageText(
+            "empty.list","empty.list")'); } else if(! hasChecked('ids')) { showAlert('#springMessageText(
+            "please.select","please.select")'); } else { showConfirm('#springMessageText(
+            "confirm.batch.delete","confirm.batch.delete")', 'providers/' + getChecked('ids') + '/delete' ); } return false;"><img
+                src="$rootContextPath.getURI("images/ico_delete.png")" width="12" height="12"/><span
+                class="ico_font">#springMessageText("batch.delete", "batch.delete")</span></a>
+    #end
+</div>
+<br/>
+<table cellpadding="0" cellspacing="0" class="list list_dubbo" id="table_o">
+    <tr>
+        <th width="20"><input type="checkbox" onclick="checkAll('table_o', 'ids', this.checked)"/></th>
+        <th>#if($address)#springMessageText("service", "service")#else#springMessageText("address", "address")#end: <input type="text" style="width: 60px;"
+                                                                                   onkeyup="searchTable('table_o', 1, this.value);"
+                                                                                   onclick="searchTable('table_o', 1, this.value);"/>&nbsp;<img
+                src="$rootContextPath.getURI("images/ico_search.png")" width="12" height="12"/></th>
+        <th>#springMessageText("weight", "weight"): <input type="text" style="width: 60px;"
+                                        onkeyup="searchTable('table_o', 2, this.value);"
+                                        onclick="searchTable('table_o', 2, this.value);"/>&nbsp;<img
+                src="$rootContextPath.getURI("images/ico_search.png")" width="12" height="12"/></th>
+        <th width="100">#springMessageText("type", "type"): <select onchange="searchTable('table_o', 3, this.value);"
+                                                   onclick="searchTable('table_o', 3, this.value);">
+            <option value="">#springMessageText("all", "all")</option>
+            <option value="#springMessageText("dynamic", "dynamic")">#springMessageText("dynamic", "dynamic")</option>
+            <option value="#springMessageText("static", "static")">#springMessageText("static", "static")</option>
+        </select></th>
+        <th width="110">#springMessageText("status", "status"): <select onchange="searchTable('table_o', 4, this.value);"
+                                                     onclick="searchTable('table_o', 4, this.value);">
+            <option value="">#springMessageText("all", "all")</option>
+            <option value="#springMessageText("enabled", "enabled")">#springMessageText("enabled", "enabled")</option>
+            <option value="#springMessageText("disabled", "disabled")">#springMessageText("disabled", "disabled")</option>
+        </select></th>
+        <th width="100">#springMessageText("check", "check"): <select onchange="searchTable('table_o', 5, this.value);"
+                                                    onclick="searchTable('table_o', 5, this.value);">
+            <option value="">#springMessageText("all", "all")</option>
+            <option value="#springMessageText("ok", "ok")">#springMessageText("ok", "ok")</option>
+            <option value="#springMessageText("warn", "warn")">#springMessageText("warn", "warn")</option>
+            <option value="#springMessageText("error", "error")">#springMessageText("error", "error")</option>
+        </select></th>
+        #if($currentUser.role != "G")
+            <th>#springMessageText("operation", "operation")</th>#end
+    </tr>
+
+    #foreach($provider in $providers)
+        #set($providerApplication = "")
+        <tr>
+            <td><input type="checkbox" name="ids" value="$provider.id"/></td>
+            <td>
+                <a href="providers/$provider.id">#if($address)$tool.getSimpleName($provider.service)#else$provider.address#end</a>
+            </td>
+            <td>$tool.getProviderWeight($provider)</td>
+            <td>#if($provider.dynamic)<font color="green">#springMessageText("dynamic", "dynamic")</font>#else<font color="blue">#springMessageText(
+                "static","static")</font>#end</td>
+            <td>#if($tool.isProviderEnabled($provider))<font color="green">#springMessageText("enabled", "enabled")</font>#else<font
+                    color="red">#springMessageText("disabled", "disabled")</font>#end</td>
+            <td>
+                #set($errorLevel = "ok")
+                #set($errorMessage = "")
+                #set($appList = $!serviceAppMap.get($provider.service))
+                #if($appList.size()>1)
+                    #if ($errorLevel != "error") #set($errorLevel = "warn") #end
+                    #set($errorMessage ="$errorMessage<br>#springMessageText('warn', 'warn'): #springMessageText(
+                        'CheckProviderApplicationDifferent', $appList)")
+                #end
+
+                #if($provider.address.startsWith("127.") || $provider.address.startsWith(
+                    "localhost:") || $provider.address.startsWith("0.0.0.0:"))
+                    #if ($errorLevel != "error") #set($errorLevel = "warn") #end
+                    #set($errorMessage =
+                        "$errorMessage<br>#springMessageText('warn', 'warn'): #springMessage('CheckProviderLocalAddress', $provider.address)")
+                #end
+
+                #if ($errorLevel == "warn")
+                    <a href="#" onclick="showAlert('<font color=orange>#springMessageText(
+                        'warn','warn')</font>', '$errorMessage'); return false;">
+                        <img src="$rootContextPath.getURI("images/ico_warn.png")" width="12" height="12"/>
+                        <font color="orange"><u>#springMessageText("warn", "warn")</u></font>
+                    </a>
+                #elseif ($errorLevel == "error")
+                    <a href="#"
+                       onclick="showAlert('<font color=red>#springMessageText("error", "error")</font>', '$errorMessage'); return false;">
+                        <img src="$rootContextPath.getURI("images/ico_error.png")" width="12" height="12"/>
+                        <font color="red"><u>#springMessageText("error", "error")</u></font>
+                    </a>
+                #else
+                    <font color="green">#springMessageText("ok", "ok")</font>
+                #end
+            </td>
+            #if($currentUser.role != "G")
+                <td>
+                    #if($currentUser.hasServicePrivilege($provider.service))
+                        <a href="providers/$provider.id/edit"><img src="$rootContextPath.getURI("images/ico_edit.png")"
+                                                                   width="12" height="12"/><span
+                                class="ico_font">#springMessageText("edit", "edit")</span></a>
+                        <span class="ico_line">|</span>
+                        <a href="providers/$provider.id/add"><img src="$rootContextPath.getURI("images/ico_add.png")"
+                                                                  width="12" height="12"/><span
+                                class="ico_font">#springMessageText("copy", "copy")</span></a>
+                        <span class="ico_line">|</span>
+                        <a href="#" onclick="showConfirm('#springMessageText(
+                            "confirm.weight.doubling","confirm.weight.doubling")', '$provider.url', 'providers/$provider.id/doubling'); return false;"><img
+                                src="$rootContextPath.getURI("images/ico_up.png")" width="12" height="12"/><span
+                                class="ico_font">#springMessageText("weight.doubling", "weight.doubling")</span></a>
+                        <span class="ico_line">|</span>
+                        <a href="#" onclick="showConfirm('#springMessageText(
+                            "confirm.weight.halving","confirm.weight.halving")', '$provider.url', 'providers/$provider.id/halving'); return false;"><img
+                                src="$rootContextPath.getURI("images/ico_down.png")" width="12" height="12"/><span
+                                class="ico_font">#springMessageText("weight.halving", "weight.halving")</span></a>
+                        <span class="ico_line">|</span>
+                        #if($tool.isProviderEnabled($provider))
+                            <a href="#" onclick="showConfirm('#springMessageText(
+                                "confirm.disable","confirm.disable")', '$provider.url', 'providers/$provider.id/disable'); return false;"><img
+                                    src="$rootContextPath.getURI("images/ico_disable.png")" width="12"
+                                    height="12"/><span class="ico_font">#springMessageText("disable", "disable")</span></a>
+                        #else
+                            <a href="#" onclick="showConfirm('#springMessageText(
+                                "confirm.enable","confirm.enable")', '$provider.url', 'providers/$provider.id/enable'); return false;"><img
+                                    src="$rootContextPath.getURI("images/ico_enable.png")" width="12" height="12"/><span
+                                    class="ico_font">#springMessageText("enable", "enable")</span></a>
+                        #end
+                        #if(! $provider.dynamic)
+                            <span class="ico_line">|</span>
+                            <a href="#" onclick="showConfirm('#springMessageText(
+                                "confirm.delete","confirm.delete")', '$provider.url', 'providers/$provider.id/delete'); return false;"><img
+                                    src="$rootContextPath.getURI("images/ico_delete.png")" width="12" height="12"/><span
+                                    class="ico_font">#springMessageText("delete", "delete")</span></a>
+                        #end
+                    #end
+                </td>
+            #end
+        </tr>
+    #end
+</table>
+<div class="page">#springMessageText("page.total", "page.total")$providers.size()#springMessageText("page.records", "page.records") </div>

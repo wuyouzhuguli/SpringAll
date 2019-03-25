@@ -1,0 +1,44 @@
+##Licensed to the Apache Software Foundation (ASF) under one or more
+##contributor license agreements.  See the NOTICE file distributed with
+##this work for additional information regarding copyright ownership.
+##The ASF licenses this file to You under the Apache License, Version 2.0
+##(the "License"); you may not use this file except in compliance with
+##the License.  You may obtain a copy of the License at
+##
+##http://www.apache.org/licenses/LICENSE-2.0
+##
+##Unless required by applicable law or agreed to in writing, software
+##distributed under the License is distributed on an "AS IS" BASIS,
+##WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+##See the License for the specific language governing permissions and
+##limitations under the License.
+#set($layout = "/templates/governance/layout/noServicePrivilege.vm")
+<div id="alertBox" style="display: none; position: absolute; left: 200px; top: 200px; width: 720px; height: 300px;">
+    <table style="background-image: url('#if($success)$rootContextPath.getURI(
+        "images/tip_succeed.png")#else$rootContextPath.getURI("images/tip_del.png")#end');" width="720" height="300">
+        <tr height="42">
+            <td></td>
+            <td width="31"><img src="$rootContextPath.getURI("images/pop_close.png")" onclick="fnBack()"
+                                style="cursor: pointer;" width="20" height="20"/></td>
+        </tr>
+        <tr height="120">
+            <td align="right"><span style="font-size: 32px;">#if($success)$i18n.get("success")#else$i18n.get(
+                "failure")#end</span><br/>$!message$!exception.message</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td align="right">
+                <div class="btn_info" style="float: right; clear: left;"><a href="$returnUrl"> $i18n.get("confirm")</a>
+                </div>
+            </td>
+            <td></td>
+        </tr>
+    </table>
+    <div>
+        <script type="text/javascript">
+            Box.show("alertBox");
+
+            function fnBack() {
+                history.go(-2);
+            }
+        </script>

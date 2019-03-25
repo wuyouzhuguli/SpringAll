@@ -1,0 +1,90 @@
+##Licensed to the Apache Software Foundation (ASF) under one or more
+##contributor license agreements.  See the NOTICE file distributed with
+##this work for additional information regarding copyright ownership.
+##The ASF licenses this file to You under the Apache License, Version 2.0
+##(the "License"); you may not use this file except in compliance with
+##the License.  You may obtain a copy of the License at
+##
+##http://www.apache.org/licenses/LICENSE-2.0
+##
+##Unless required by applicable law or agreed to in writing, software
+##distributed under the License is distributed on an "AS IS" BASIS,
+##WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+##See the License for the specific language governing permissions and
+##limitations under the License.
+#set($layout = "/templates/governance/layout/default.vm")
+<div class="ico_btn">
+    <a href="../weights"><img src="$rootContextPath.getURI("images/ico_back.png")" width="12" height="12"/><span
+            class="ico_font">#springMessageText("back", "back")</span></a>
+    #if($currentUser.role != "G")
+        <span class="ico_line">|</span>
+        <a href="$weight.id/edit">
+            <img src="$rootContextPath.getURI("images/ico_edit.png")" width="13" height="13"/>
+            <span class="ico_font">#springMessageText("edit", "edit")</span></a>
+        <span class="ico_line">|</span>
+        <a href="#" onclick="showConfirm('#springMessageText(
+            "confirm.delete","confirm.delete")', '$weight.address', '$weight.id/delete'); return false;"><img
+                src="$rootContextPath.getURI("images/ico_delete.png")" width="12" height="12"/><span
+                class="ico_font">#springMessageText("delete", "delete")</span></a>
+    #end
+</div>
+<br/>
+<form id="weightForm" action="../$weight.id" method="POST">
+    <table cellpadding="0" cellspacing="0" class="info">
+        <tr>
+            <th style="width: 100px;">#springMessageText("service", "service")&nbsp;&nbsp;<font color='red'>*</font></th>
+            <td>
+                $weight.service
+            </td>
+        </tr>
+        <tr>
+            <th style="width: 100px;">#springMessageText("provider", "provider")&nbsp;&nbsp;<font color='red'>*</font></th>
+            <td>
+                $weight.address
+            </td>
+        </tr>
+        <tr>
+            <th style="width: 100px;">#springMessageText("weights", "weights")&nbsp;&nbsp;<font color='red'>*</font></th>
+            <td>
+                $weight.weight
+            </td>
+        </tr>
+    </table>
+</form>
+
+
+<script language="javascript">
+
+    //通过服务名后面的选择框，快速设置service_name的值
+    function fnSetService(obj, id) {
+        if (obj.value != '') {
+            document.getElementById(id).value = obj.value;
+        }
+    }
+
+    function check() {
+        var serviceName = byId('serviceName').value.trim();
+        if (serviceName == '') {
+            showAlert("#springMessageText("PleaseInput", "PleaseInput") #springMessageText("service", "service")", 'serviceName');
+            return false;
+        }
+        var consumerAddress = byId('consumerAddress').value.trim();
+        if (consumerAddress == '') {
+            showAlert("#springMessageText("PleaseInput", "PleaseInput") #springMessageText("ConsumerAddress", "ConsumerAddress")", 'consumerAddress');
+            return false;
+        }
+        var exp = /^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$/;
+        var exp2 = /^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.\*$/;
+        var addresses = consumerAddress.split("\n");
+        for (var i = 0; i < addresses.length; i++) {
+            var address = addresses[i];
+            if (address != "") {
+                if (!address.match(exp) && !address.match(exp2)) {
+                    showAlert("#springMessageText("InvalidIp", "InvalidIp") #springMessageText("ConsumerAddress", "ConsumerAddress")", 'consumerAddress');
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+</script>

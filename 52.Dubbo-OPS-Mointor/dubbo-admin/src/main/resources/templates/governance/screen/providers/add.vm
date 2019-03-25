@@ -1,0 +1,98 @@
+##Licensed to the Apache Software Foundation (ASF) under one or more
+##contributor license agreements.  See the NOTICE file distributed with
+##this work for additional information regarding copyright ownership.
+##The ASF licenses this file to You under the Apache License, Version 2.0
+##(the "License"); you may not use this file except in compliance with
+##the License.  You may obtain a copy of the License at
+##
+##http://www.apache.org/licenses/LICENSE-2.0
+##
+##Unless required by applicable law or agreed to in writing, software
+##distributed under the License is distributed on an "AS IS" BASIS,
+##WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+##See the License for the specific language governing permissions and
+##limitations under the License.
+#set($layout = "/templates/governance/layout/default.vm")
+<div class="ico_btn">
+    <a href="#if($id)../#end../providers"><img src="$rootContextPath.getURI("images/ico_back.png")" width="12"
+                                               height="12"/><span class="ico_font">#springMessageText("back", "back")</span></a>
+</div>
+<br/>
+<form id="providerForm" action="#if($id)../create#{else}create#end" method="POST">
+    <table cellpadding="0" cellspacing="0" class="info">
+        #if(! $service)
+            #if($provider.service)
+                <input type="hidden" id="service" name="service" value="$!provider.service"/>
+            #else
+                <tr>
+                    <th style="width: 100px;">#springMessageText("service", "service"):</th>
+                    <td style="width: 300px;"><input id="service" type="text" name="service" class="setting_input"
+                                                     style="width: 200px;"/>
+                        <select onchange="fnSetService(this)">
+                            <option value="">#springMessageText("Choose", "Choose")</option>
+                            #foreach($s in $serviceList)
+                                <option value="$s">$tool.getSimpleName($s)</option>
+                            #end
+                        </select>
+                    </td>
+                </tr>
+            #end
+        #end
+        <tr>
+            <th style="width: 100px;">#springMessageText("url", "url"):</th>
+            <td><input type="text" id="url" name="url"
+                       value="#if($provider.url)$!provider.url?$!provider.parameters#{else}dubbo://#if($address)$address#{else}0.0.0.0:20880#end/#if($service)$tool.getInterface($service)#{else}com.xxx.XxxService#end?application=#if($app)$app#{else}xxx#end#if($tool.getGroup($service))&group=$tool.getGroup($service)#end#if($tool.getVersion($service))&version=$tool.getVersion($service)#end#end"
+                       class="setting_input" style="width: 700px;" maxlength="2000"/></td>
+        </tr>
+        <tr>
+            <th>#springMessageText("type", "type"):</th>
+            <td><font color="blue">#springMessageText("static", "static")</font></td>
+        </tr>
+        <tr>
+            <th>#springMessageText("status", "status"):</th>
+            <td>
+                <select name="enabled">
+                    <option value="true">#springMessageText("enable", "enable")</option>
+                    <option value="false" selected="selected">#springMessageText("disable", "disable")</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <div class="btn"><a href="#"
+                                    onclick="if(check()){document.getElementById('providerForm').submit();}">#springMessageText(
+                    "save","save")</a></div>
+            </th>
+        </tr>
+    </table>
+</form>
+
+
+<script type="text/javascript">
+    //通过服务名后面的选择框，快速设置service_name的值
+    function fnSetService(obj) {
+        if (obj.value != '') {
+            var old = document.getElementById('service').value;
+            if (old == '') {
+                old = "com.xxx.XxxService";
+            }
+            byId('url').value = byId('url').value.replace(old, obj.value);
+            document.getElementById('service').value = obj.value;
+        }
+    }
+    function check() {
+        #if(! $service)
+            var service = byId('service').value.trim();
+            if (service == '') {
+                showAlert("#springMessageText("PleaseInput", "PleaseInput")#springMessageText("service", "service")", 'service');
+                return false;
+            }
+        #end
+        var url = byId('url').value.trim();
+        if (url == '' || url.indexOf('0.0.0.0') > 0 || url.indexOf('com.xxx.XxxService') > 0 || url.indexOf('application=xxx') > 0) {
+            showAlert("#springMessageText("PleaseInput", "PleaseInput")#springMessageText("url", "url")", 'url');
+            return false;
+        }
+        return true;
+    }
+</script>
