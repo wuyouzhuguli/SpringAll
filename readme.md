@@ -32,6 +32,7 @@
 29. [自定义Spring Boot 内容协商](https://mrbird.cc/blog/Spring-Boot-Diy-Resolver.html)
 30. [Spring Boot 中处理跨域](https://mrbird.cc/blog/Spring-Boot-Deal-CORS.html)
 31. [Spring Boot 中的异步调用](https://mrbird.cc/blog/Spring-Boot-Async.html)
+32. [Spring Boot 整合Kafka](https://mrbird.cc/blog/Spring-Boot-Kafka.html)
 
 ### Spring Boot & Shiro教程
 1. [Spring Boot Shiro用户认证](https://mrbird.cc/blog/Spring-Boot-shiro%20Authentication.html)
