@@ -1,7 +1,7 @@
 ## Spring 系列教程
 该仓库为个人博客[https://mrbird.cc](http://mrbird.cc)中Spring系列源码，包含Spring Boot、Spring Boot & Shiro、Spring Cloud和Spring Boot & Spring Security，如果该系列教程对您有帮助的话，还请点个star给予精神支持！🐤
 
-### Spring Boot教程
+### Spring Boot教程 
 1. [开启Spring Boot](http://mrbird.cc/%E5%BC%80%E5%90%AFSpring-Boot.html)
 2. [Spring Boot基础配置](http://mrbird.cc/Spring-Boot%20basic%20config.html)
 3. [Spring Boot中使用MyBatis](http://mrbird.cc/Spring-Boot%20Mybatis.html)
@@ -62,6 +62,7 @@
 9. [Spring Cloud Config统一配置管理](http://mrbird.cc/Spring-Cloud-Config.html)
 10. [使用Spring Cloud Bus刷新配置](http://mrbird.cc/Spring-Cloud-Bus.html)
 11. [使用Spring Cloud Sleuth跟踪微服务](http://mrbird.cc/Spring-Cloud-sleuth.html)
+12. [Spring Cloud Consul服务治理](http://mrbird.cc/Spring-Cloud-Consul.html)
 
 ### Spring Boot && Dubbo教程
 1. [Spring Boot整合Dubbo&Zookeeper](http://mrbird.cc/Spring-Boot-Dubbo-Zookeeper.html)
