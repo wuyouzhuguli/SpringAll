@@ -1,0 +1,15 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: server-provider
+
+  cloud:
+    consul:
+      host: 192.168.140.215
+      port: 8500
+      discovery:
+        health-check-interval: 10s
+        service-name: ${spring.application.name}
+        register-health-check: true
+        health-check-path: /check

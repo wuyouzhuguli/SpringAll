@@ -1,0 +1,13 @@
+server:
+  port: 9002
+
+spring:
+  application:
+    name: server-consumer
+
+  cloud:
+    consul:
+      host: 192.168.140.215
+      port: 8500
+      discovery:
+        service-name: ${spring.application.name}
