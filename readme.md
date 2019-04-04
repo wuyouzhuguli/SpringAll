@@ -33,6 +33,10 @@
 30. [Spring Boot 中处理跨域](https://mrbird.cc/Spring-Boot-Deal-CORS.html)
 31. [Spring Boot 中的异步调用](https://mrbird.cc/Spring-Boot-Async.html)
 32. [Spring Boot 整合Kafka](https://mrbird.cc/Spring-Boot-Kafka.html)
+33. [Spring Boot整合Mongo DB](https://mrbird.cc/Spring-Boot-Mongo-DB-CRUD.html)
+34. [Spring Boot 2.0 WebFlux编程](https://mrbird.cc/Spring-Boot-2-0-WebFlux.html)
+35. [Spring Boot WebFlux增删改查样例](https://mrbird.cc/Spring-Boot-WebFlux-CRUD.html)
+
 
 ### Spring Boot & Shiro教程
 1. [Spring Boot Shiro用户认证](https://mrbird.cc/Spring-Boot-shiro%20Authentication.html)
