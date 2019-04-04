@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test sse</title>
+</head>
+<body>
+</body>
+<script>
+    var es = new EventSource("async/flux");
+    es.onmessage = function (evt) {
+        console.log(evt.data);
+        if (evt.data === "int value：4") {
+            es.close();
+        }
+    };
+</script>
+</html>
