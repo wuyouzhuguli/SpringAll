@@ -1,0 +1,11 @@
+security:
+  basic:
+    enabled: true
+
+server:
+  session:
+    timeout: 3600
+
+spring:
+  session:
+    store-type: redis
