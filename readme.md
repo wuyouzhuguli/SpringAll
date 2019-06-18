@@ -46,6 +46,7 @@
 5. [Spring Boot Shiro Ehcache](https://mrbird.cc/Spring-Boot-Shiro%20cache.html)
 6. [Spring Boot Thymeleaf中使用Shiro标签](https://mrbird.cc/Spring-Boot-Themeleaf%20Shiro%20tag.html)
 7. [Spring Boot Shiro在线会话管理](https://mrbird.cc/Spring-Boot-Shiro%20session.html)
+8. [Spring Boot Shiro整合JWT](https://github.com/wuyouzhuguli/SpringAll/tree/master/62.Spring-Boot-Shiro-JWT)
 
 ### Spring Boot & Security教程
 1. [Spring Boot中开启Spring Security](https://mrbird.cc/Spring-Boot&Spring-Security.html)
