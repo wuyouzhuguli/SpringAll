@@ -1,0 +1,153 @@
+{
+	"info": {
+		"_postman_id": "37b4020a-9a03-4d5a-9504-9f6520a040f1",
+		"name": "测试请求",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "登录测试",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "465a0661-a8b5-4ddd-ad37-6a92f9a25348",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "text/properties"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/login?username=admin&password=123456",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "admin"
+						},
+						{
+							"key": "password",
+							"value": "123456"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin请求测试",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTE3MDIyNTgsInVzZXJuYW1lIjoiYWRtaW4ifQ.EyruxB9m6VJ2Rs_29iB1IblKD1H2fVTB2Nb0xQ4PYOc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/test/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"test",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "scott请求测试",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTE3MDIxODMsInVzZXJuYW1lIjoic2NvdHQifQ._rR8kgvYPsnnZwMW6QdaSD8jw8clcWI0b0atd3oEdGY",
+						"equals": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/test/3?Token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTE3MDIxODMsInVzZXJuYW1lIjoic2NvdHQifQ._rR8kgvYPsnnZwMW6QdaSD8jw8clcWI0b0atd3oEdGY",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"test",
+						"3"
+					],
+					"query": [
+						{
+							"key": "Token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTE3MDIxODMsInVzZXJuYW1lIjoic2NvdHQifQ._rR8kgvYPsnnZwMW6QdaSD8jw8clcWI0b0atd3oEdGY"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "测试/test/1",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Token",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/test/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"test",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
