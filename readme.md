@@ -59,7 +59,7 @@
 8. [Spring Security权限控制](https://mrbird.cc/Spring-Security-Permission.html)
 9. [Spring Security OAuth2入门](https://mrbird.cc/Spring-Security-OAuth2-Guide.html)
 10. [Spring Security OAuth2自定义Token获取方式](https://mrbird.cc/Spring-Security-OAuth2-Customize.html)
-11. [Spring Security OAuth2自定义令牌配置](https:///Spring-Security-OAuth2-Token-Config.html)
+11. [Spring Security OAuth2自定义令牌配置](https://mrbird.cc/Spring-Security-OAuth2-Token-Config.html)
 ### Spring Cloud教程
 1. [初识Spring Cloud与微服务](https://mrbird.cc/Spring-Cloud%20and%20MicroService.html)
 2. [Spring Cloud Eureka服务治理](https://mrbird.cc/Spring-Cloud-Eureka.html)
