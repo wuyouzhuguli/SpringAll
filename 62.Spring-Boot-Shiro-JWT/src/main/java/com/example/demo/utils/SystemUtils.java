@@ -21,7 +21,7 @@ public class SystemUtils {
      *
      * @return List<User>
      */
-    private static List<User> users() {
+    private static List<User> getUserList() {
         List<User> users = new ArrayList<>();
         // 模拟两个用户：
         // 1. 用户名 admin，密码 123456，角色 admin（管理员），权限 "user:add"，"user:view"
@@ -46,7 +46,7 @@ public class SystemUtils {
      * @return 用户
      */
     public static User getUser(String username) {
-        List<User> users = SystemUtils.users();
+        List<User> users = SystemUtils.getUserList();
         return users.stream().filter(user -> StringUtils.equalsIgnoreCase(username, user.getUsername())).findFirst().orElse(null);
     }
 
