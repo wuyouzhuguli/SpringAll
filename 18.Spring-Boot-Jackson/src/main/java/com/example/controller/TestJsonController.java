@@ -70,7 +70,7 @@ public class TestJsonController {
 	@ResponseBody
 	public String readJsonAsObject() {
 		try {
-			String json = "{\"user-name\":\"mrbird\"}";
+			String json = "{\"userName\":\"mrbird\"}";
 			User user = mapper.readValue(json, User.class);
 			String name = user.getUserName();
 			return name;
