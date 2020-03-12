@@ -84,17 +84,11 @@
 ### Spring Boot && Spring Batch教程
 
 1. [Spring Batch入门](https://mrbird.cc/Spring-Batch入门.html)
-
 2. [Spring Batch读取数据](https://mrbird.cc/Spring-Batch读取数据.html)
-
 3. [Spring Batch输出数据](https://mrbird.cc/Spring-Batch输出数据.html)
-
 4. [Spring Batch处理数据](https://mrbird.cc/Spring-Batch处理数据.html)
-
 5. [Spring Batch监听器](https://mrbird.cc/Spring-Batch监听器.html)
-
 6. [Spring Batch异常处理](https://mrbird.cc/Spring-Batch异常处理.html)
-
 7. [Spring Batch任务调度](https://mrbird.cc/Spring-Batch作业调度.html)
 
 ## Spring
