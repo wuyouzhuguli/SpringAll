@@ -75,6 +75,8 @@
 10. [使用Spring Cloud Bus刷新配置](https://mrbird.cc/Spring-Cloud-Bus.html)
 11. [使用Spring Cloud Sleuth跟踪微服务](https://mrbird.cc/Spring-Cloud-sleuth.html)
 12. [Spring Cloud Consul服务治理](https://mrbird.cc/Spring-Cloud-Consul.html)
+13. [Spring Cloud Alibaba Nacos注册中心](https://mrbird.cc/Spring-Cloud-Alibaba-Nacos注册中心.html)
+14. [Spring Cloud Alibaba Nacos配置中心](https://mrbird.cc/Spring-Cloud-Alibaba-Nacos配置中心.html)
 
 ### Spring Boot && Dubbo教程
 1. [Spring Boot整合Dubbo&Zookeeper](https://mrbird.cc/Spring-Boot-Dubbo-Zookeeper.html)
