@@ -36,7 +36,7 @@
 33. [Spring Boot整合Mongo DB](https://mrbird.cc/Spring-Boot-Mongo-DB-CRUD.html)
 34. [Spring Boot 2.0 WebFlux编程](https://mrbird.cc/Spring-Boot-2-0-WebFlux.html)
 35. [Spring Boot WebFlux增删改查样例](https://mrbird.cc/Spring-Boot-WebFlux-CRUD.html)
-
+36. [Spring Boot整合WebSocket](https://mrbird.cc/Spring-Boot整合WebSocket.html)
 
 ### Spring Boot & Shiro教程
 1. [Spring Boot Shiro用户认证](https://mrbird.cc/Spring-Boot-shiro%20Authentication.html)
