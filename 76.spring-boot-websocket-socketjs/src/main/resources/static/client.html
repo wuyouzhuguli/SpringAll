@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebSocket客户端</title>
+    <script src="https://cdn.bootcss.com/sockjs-client/0.3.4/sockjs.min.js"></script>
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<style>
+    .jumbotron {
+        width: 100%;
+    }
+
+    #text {
+        height: 3rem;
+        font-size: 1rem;
+        line-height: 3rem;
+        margin: 1rem;
+    }
+
+    .btn {
+        margin-right: 5px;
+    }
+
+    #connect {
+        margin-left: 1rem;
+    }
+
+    #log {
+        margin: 1rem 0 0 1rem;
+    }
+
+</style>
+<div class="container">
+    <div class="row">
+        <div class="jumbotron">
+            <input type="text" placeholder="请输入你想传输的内容" id="text" class="col-lg-12"/>
+            <input type="button" value="连接" class="btn btn-info" id="connect" onclick="connect()"/>
+            <input type="button" value="发送" class="btn btn-success" id="sent" disabled="disabled" onclick="sent()"/>
+            <input type="button" value="断开" class="btn btn-danger" id="disconnect" disabled="disabled"
+                   onclick="disconnect()"/>
+
+            <div id="log">
+                <p>聊天记录:</p>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    let text = document.querySelector('#text');
+    let connectBtn = document.querySelector("#connect");
+    let sentBtn = document.querySelector("#sent");
+    let disconnectBtn = document.querySelector("#disconnect");
+    let logDiv = document.querySelector("#log");
+
+    let ws = null;
+
+    function connect() {
+        let targetUri = "/connect";
+        ws = new SockJS(targetUri);
+        ws.onopen = function () {
+            setConnected(true);
+            log('和服务端连接成功！');
+        };
+        ws.onmessage = function (event) {
+            log('服务端说：' + event.data);
+        };
+        ws.onclose = function () {
+            setConnected(false);
+            log('和服务端断开连接！')
+        }
+    }
+
+    function sent() {
+        if (ws != null) {
+            ws.send(text.value);
+            log('客户端说：' + text.value);
+        } else {
+            log('请先建立连接！')
+        }
+    }
+
+    function disconnect() {
+        if (ws != null) {
+            ws.close();
+            ws = null;
+        }
+        setConnected(false);
+    }
+
+    function log(value) {
+        let content = document.createElement('p');
+        content.innerHTML = value;
+        logDiv.appendChild(content);
+        text.value = '';
+    }
+
+    function setConnected(connected) {
+        connectBtn.disabled = connected;
+        disconnectBtn.disabled = !connected;
+        sentBtn.disabled = !connected;
+    }
+</script>
+</body>
+</html>
