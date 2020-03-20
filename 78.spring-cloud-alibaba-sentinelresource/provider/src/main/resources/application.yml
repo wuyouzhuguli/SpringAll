@@ -1,0 +1,8 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: provider
+  cloud:
+    nacos:
+      server-addr: localhost:8001
