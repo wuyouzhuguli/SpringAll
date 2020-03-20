@@ -77,6 +77,8 @@
 12. [Spring Cloud Consul服务治理](https://mrbird.cc/Spring-Cloud-Consul.html)
 13. [Spring Cloud Alibaba Nacos注册中心](https://mrbird.cc/Spring-Cloud-Alibaba-Nacos注册中心.html)
 14. [Spring Cloud Alibaba Nacos配置中心](https://mrbird.cc/Spring-Cloud-Alibaba-Nacos配置中心.html)
+15. [Spring Cloud Alibaba Sentinel控制台详解](https://mrbird.cc/Sentinel控制台详解.html)
+16. [Spring Cloud Alibaba Sentinel @SentinelResource](https://mrbird.cc/Spring-Cloud-Alibaba-Sentinel-SentinelResource.html)
 
 ### Spring Boot && Dubbo教程
 1. [Spring Boot整合Dubbo&Zookeeper](https://mrbird.cc/Spring-Boot-Dubbo-Zookeeper.html)
