@@ -11,7 +11,7 @@ import com.springboot.bean.TestConfigBean;
 @EnableConfigurationProperties({ConfigBean.class,TestConfigBean.class})
 //@ImportResource({"classpath:some-application.xml"})
 public class Application {
-	
+
 	public static void main(String[] args) {
 		SpringApplication app = new SpringApplication(Application.class);
 		app.setAddCommandLineProperties(false);

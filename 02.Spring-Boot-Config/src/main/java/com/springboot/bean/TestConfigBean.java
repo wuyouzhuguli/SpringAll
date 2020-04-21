@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
-@Configuration
+//@Configuration
 @ConfigurationProperties(prefix="test")
 @PropertySource("classpath:test.properties")
 @Component
@@ -24,5 +24,5 @@ public class TestConfigBean {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	
+
 }
