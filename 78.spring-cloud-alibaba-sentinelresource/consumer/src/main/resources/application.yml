@@ -1,0 +1,12 @@
+server:
+  port: 9091
+spring:
+  application:
+    name: consumer
+  cloud:
+    nacos:
+      server-addr: localhost:8001
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+        port: 8719

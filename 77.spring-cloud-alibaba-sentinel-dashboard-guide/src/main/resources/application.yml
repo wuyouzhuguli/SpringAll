@@ -1,0 +1,11 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: my-project
+  cloud:
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+        port: 8719
+      web-context-unify: false

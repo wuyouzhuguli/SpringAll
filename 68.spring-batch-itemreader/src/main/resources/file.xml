@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<tests>
+    <test>
+        <id>1</id>
+        <field1>11</field1>
+        <field2>12</field2>
+        <field3>13</field3>
+    </test>
+    <test>
+        <id>2</id>
+        <field1>21</field1>
+        <field2>22</field2>
+        <field3>23</field3>
+    </test>
+    <test>
+        <id>3</id>
+        <field1>31</field1>
+        <field2>32</field2>
+        <field3>33</field3>
+    </test>
+    <test>
+        <id>4</id>
+        <field1>41</field1>
+        <field2>42</field2>
+        <field3>43</field3>
+    </test>
+    <test>
+        <id>5</id>
+        <field1>51</field1>
+        <field2>52</field2>
+        <field3>53</field3>
+    </test>
+    <test>
+        <id>6</id>
+        <field1>61</field1>
+        <field2>62</field2>
+        <field3>63</field3>
+    </test>
+</tests>

@@ -36,7 +36,7 @@
 33. [Spring Boot整合Mongo DB](https://mrbird.cc/Spring-Boot-Mongo-DB-CRUD.html)
 34. [Spring Boot 2.0 WebFlux编程](https://mrbird.cc/Spring-Boot-2-0-WebFlux.html)
 35. [Spring Boot WebFlux增删改查样例](https://mrbird.cc/Spring-Boot-WebFlux-CRUD.html)
-
+36. [Spring Boot整合WebSocket](https://mrbird.cc/Spring-Boot整合WebSocket.html)
 
 ### Spring Boot & Shiro教程
 1. [Spring Boot Shiro用户认证](https://mrbird.cc/Spring-Boot-shiro%20Authentication.html)
@@ -61,6 +61,7 @@
 10. [Spring Security OAuth2自定义Token获取方式](https://mrbird.cc/Spring-Security-OAuth2-Customize.html)
 11. [Spring Security OAuth2自定义令牌配置](https://mrbird.cc/Spring-Security-OAuth2-Token-Config.html)
 12. [Spring Security OAuth2单点登录](https://mrbird.cc/Spring-Security-OAuth2-SSO.html)
+
 ### Spring Cloud教程
 1. [初识Spring Cloud与微服务](https://mrbird.cc/Spring-Cloud%20and%20MicroService.html)
 2. [Spring Cloud Eureka服务治理](https://mrbird.cc/Spring-Cloud-Eureka.html)
@@ -74,11 +75,25 @@
 10. [使用Spring Cloud Bus刷新配置](https://mrbird.cc/Spring-Cloud-Bus.html)
 11. [使用Spring Cloud Sleuth跟踪微服务](https://mrbird.cc/Spring-Cloud-sleuth.html)
 12. [Spring Cloud Consul服务治理](https://mrbird.cc/Spring-Cloud-Consul.html)
+13. [Spring Cloud Alibaba Nacos注册中心](https://mrbird.cc/Spring-Cloud-Alibaba-Nacos注册中心.html)
+14. [Spring Cloud Alibaba Nacos配置中心](https://mrbird.cc/Spring-Cloud-Alibaba-Nacos配置中心.html)
+15. [Spring Cloud Alibaba Sentinel控制台详解](https://mrbird.cc/Sentinel控制台详解.html)
+16. [Spring Cloud Alibaba Sentinel @SentinelResource](https://mrbird.cc/Spring-Cloud-Alibaba-Sentinel-SentinelResource.html)
 
 ### Spring Boot && Dubbo教程
 1. [Spring Boot整合Dubbo&Zookeeper](https://mrbird.cc/Spring-Boot-Dubbo-Zookeeper.html)
 2. [监控Dubbo服务](https://mrbird.cc/dubbo-mointor.html)
 3. [Dubbo的高可用](https://mrbird.cc/Dubbo-High-Availability.html)
+
+### Spring Boot && Spring Batch教程
+
+1. [Spring Batch入门](https://mrbird.cc/Spring-Batch入门.html)
+2. [Spring Batch读取数据](https://mrbird.cc/Spring-Batch读取数据.html)
+3. [Spring Batch输出数据](https://mrbird.cc/Spring-Batch输出数据.html)
+4. [Spring Batch处理数据](https://mrbird.cc/Spring-Batch处理数据.html)
+5. [Spring Batch监听器](https://mrbird.cc/Spring-Batch监听器.html)
+6. [Spring Batch异常处理](https://mrbird.cc/Spring-Batch异常处理.html)
+7. [Spring Batch任务调度](https://mrbird.cc/Spring-Batch作业调度.html)
 
 ## Spring
 1. [深入学习Spring组件注册](https://mrbird.cc/Spring-Bean-Regist.html)
