@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
@@ -18,8 +21,9 @@ public class AsynTest {
     OrderService orderService;
 
     @Test
-    public void test(){
+    public void asyncMethodCall(){
         System.out.println("开始async");
+        orderService.sleepForAWhile();
         Future<List<String>> future1 = orderService.getList();
         Future<List<String>> future2 = orderService.getList2();
         //同步执行for循环
@@ -39,6 +43,27 @@ public class AsynTest {
             System.out.println(e.getStackTrace());
         } catch (ExecutionException e) {
             System.out.println(e.getStackTrace());
+        }
+    }
+
+    @Test
+    public void runTimeExecTest(){
+        String process="ipconfig";
+        Process exec = null;
+        try {
+            exec = Runtime.getRuntime().exec(process);
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+        BufferedReader input = new BufferedReader(new InputStreamReader(exec.getInputStream()));
+        String line = "";
+        try {
+            while((line = input.readLine()) != null) {
+                System.out.println(line);
+            }
+            input.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
