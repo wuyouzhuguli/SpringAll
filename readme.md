@@ -98,5 +98,11 @@
 ## Spring
 1. [深入学习Spring组件注册](https://mrbird.cc/Spring-Bean-Regist.html)
 2. [深入学习Spring Bean生命周期](https://mrbird.cc/Spring-Bean-Lifecycle.html)
+3. [深入理解Spring BeanPostProcessor & InstantiationAwareBeanPostProcessor](https://mrbird.cc/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Spring-BeanPostProcessor-InstantiationAwareBeanPostProcessor.html)
+4. [深入理解BeanFactoryPostProcessor & BeanDefinitionRegistryPostProcessor](https://mrbird.cc/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3BeanFactoryPostProcessor-BeanDefinitionRegistryPostProcessor.html)
+5. [深入理解Spring AOP原理](https://mrbird.cc/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Spring-AOP%E5%8E%9F%E7%90%86.html)
+6. [Spring声明式事务原理](https://mrbird.cc/Spring%E5%A3%B0%E6%98%8E%E5%BC%8F%E4%BA%8B%E5%8A%A1%E5%8E%9F%E7%90%86.html)
+7. [深入理解Spring事件发布与监听](https://mrbird.cc/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Spring%E4%BA%8B%E4%BB%B6%E5%8F%91%E5%B8%83%E4%B8%8E%E7%9B%91%E5%90%AC.html)
+8. [深入理解Spring循环依赖](https://mrbird.cc/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Spring%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96.html)
 
 持续更新中...
