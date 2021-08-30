@@ -1,3 +1,5 @@
+[![Maintainability](https://cloud.quality-gate.com/dashboard/api/badge?projectName=wuyouzhuguli_SpringAll&branchName=master)](https://cloud.quality-gate.com/dashboard/branches/216809#overview)
+
 ## Spring 系列教程
 该仓库为个人博客[https://mrbird.cc](https://mrbird.cc)中Spring系列源码，包含Spring Boot、Spring Boot & Shiro、Spring Cloud，Spring Boot & Spring Security & Spring Security OAuth2，如果该系列教程对您有帮助的话，还请点个star给予精神支持！🐤
 
