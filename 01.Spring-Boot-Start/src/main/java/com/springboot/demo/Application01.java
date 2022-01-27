@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @SpringBootApplication
-public class DemoApplication {
+public class Application01 {
 
 	@RequestMapping("/")
 	String index() {
@@ -15,6 +15,6 @@ public class DemoApplication {
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(Application01.class, args);
 	}
 }
