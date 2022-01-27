@@ -8,7 +8,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>Start-Spring-Boot</name>
+	<name>01.Spring-Boot-Start</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
