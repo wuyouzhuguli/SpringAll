@@ -11,15 +11,15 @@ import com.springboot.bean.TestConfigBean;
 
 @RestController
 public class IndexController {
-	@Autowired
-	private BlogProperties blogProperties;
-	@Autowired
-	private ConfigBean configBean;
-	@Autowired
-	private TestConfigBean testConfigBean;
-	
-	@RequestMapping("/")
-	String index() {
-		return testConfigBean.getName()+"，"+testConfigBean.getAge();
-	}
+    @Autowired
+    private BlogProperties blogProperties;
+    @Autowired
+    private ConfigBean configBean;
+    @Autowired
+    private TestConfigBean testConfigBean;
+
+    @RequestMapping("/")
+    String index() {
+        return testConfigBean.getName() + "，" + testConfigBean.getAge();
+    }
 }
