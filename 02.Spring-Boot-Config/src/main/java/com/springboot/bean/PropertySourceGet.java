@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties(prefix = "test")
 @PropertySource("classpath:test.properties")
 @Component
-public class TestConfigBean {
+public class PropertySourceGet {
     private String name;
     private int age;
 

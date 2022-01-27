@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.springboot.bean.ValueGetProperties;
 import com.springboot.bean.ConfigBean;
-import com.springboot.bean.TestConfigBean;
+import com.springboot.bean.PropertySourceGet;
 
 
 @RestController
@@ -23,7 +23,7 @@ public class IndexController {
     private ConfigBean2 configBean2;
 
     @Autowired
-    private TestConfigBean testConfigBean;
+    private PropertySourceGet testConfigBean;
 
     @RequestMapping("/blog")
     public String testBlog() {
