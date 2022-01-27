@@ -10,6 +10,7 @@ import com.springboot.bean.TestConfigBean;
 
 
 @RestController
+@RequestMapping("/v2")
 public class IndexController {
     @Autowired
     private BlogProperties blogProperties;
@@ -18,8 +19,18 @@ public class IndexController {
     @Autowired
     private TestConfigBean testConfigBean;
 
-    @RequestMapping("/")
-    String index() {
+    @RequestMapping("/blog")
+    public String testBlog(){
+        return blogProperties.toString();
+    }
+
+    @RequestMapping("/conf")
+    public String testConfig(){
+        return configBean.toString();
+    }
+
+    @RequestMapping("/test")
+    public String index() {
         return testConfigBean.getName() + "，" + testConfigBean.getAge();
     }
 }

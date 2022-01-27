@@ -24,6 +24,14 @@ public class ConfigBean {
 	}
 	public void setWholeTitle(String wholeTitle) {
 		this.wholeTitle = wholeTitle;
-	}	
-	
+	}
+
+	@Override
+	public String toString() {
+		return "ConfigBean{" +
+				"name='" + name + '\'' +
+				", title='" + title + '\'' +
+				", wholeTitle='" + wholeTitle + '\'' +
+				'}';
+	}
 }
