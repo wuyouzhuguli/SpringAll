@@ -9,8 +9,8 @@ import com.springboot.bean.ConfigBean;
 import com.springboot.bean.TestConfigBean;
 
 @SpringBootApplication
-@EnableConfigurationProperties({ConfigBean.class,TestConfigBean.class})
-//@ImportResource({"classpath:some-application.xml"})
+@EnableConfigurationProperties({ConfigBean.class})
+//@EnableConfigurationProperties({ConfigBean.class,TestConfigBean.class})
 public class Application02 {
 	public static void main(String[] args) {
 		SpringApplication app = new SpringApplication(Application02.class);
