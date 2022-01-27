@@ -1,7 +1,7 @@
 package com.springboot.bean;
 
+import com.springboot.yml.MixPropertySourceFactory;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
@@ -11,11 +11,10 @@ import org.springframework.stereotype.Component;
  * @description: @PropertySource读取指定 properties文件
  * @PropertySource不支持加载yml配置文件，所以需要自定义一个配置类
  */
-@ConfigurationProperties(prefix = "test")
-@PropertySource("classpath:property.properties")
-//@PropertySource("classpath:property.yml") //此时获取name和age分别为null，0
+@ConfigurationProperties(prefix = "test2")
+@PropertySource(value = {"classpath:property.yml"}, factory = MixPropertySourceFactory.class)
 @Component
-public class PropertySourceGet {
+public class PropertySourceGet2 {
     private String name;
     private int age;
 
@@ -35,4 +34,11 @@ public class PropertySourceGet {
         this.age = age;
     }
 
+    @Override
+    public String toString() {
+        return "PropertySourceGet2{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
 }

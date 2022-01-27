@@ -1,13 +1,9 @@
 package com.springboot.controller;
 
-import com.springboot.bean.ConfigBean2;
+import com.springboot.bean.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.springboot.bean.ValueGetProperties;
-import com.springboot.bean.ConfigBean;
-import com.springboot.bean.PropertySourceGet;
 
 
 @RestController
@@ -24,6 +20,8 @@ public class IndexController {
 
     @Autowired
     private PropertySourceGet testConfigBean;
+    @Autowired
+    private PropertySourceGet2 testConfigBean2;
 
     @RequestMapping("/blog")
     public String testBlog() {
@@ -43,5 +41,10 @@ public class IndexController {
     @RequestMapping("/test")
     public String index() {
         return testConfigBean.getName() + "，" + testConfigBean.getAge();
+    }
+
+    @RequestMapping("/test2")
+    public String index2() {
+        return testConfigBean2.toString();
     }
 }
