@@ -1,5 +1,8 @@
+#SpringBoot在2.0版本之后已经弃用server.context-path，而代替为server.servlet.context-path
 server:
-  context-path: /web
+  servlet:
+    context-path: /web
+  port: 8003
 
 spring:
   datasource:

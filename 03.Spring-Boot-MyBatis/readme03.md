@@ -38,6 +38,8 @@
 
 由于版权的原因，我们需要将ojdbc6.jar依赖安装到本地的maven仓库，然后才可以在pom中进行配置。
 
+https://www.oracle.com/database/technologies/faq-jdbc.html#02_03
+
 下载ojdbc6.jar文件后，将其放到比较好找的目录下，比如D盘根目录。然后运行以下命令：
 
 ```
@@ -70,8 +72,6 @@ Dpackaging=jar -DgeneratePom=true
 </dependency>
 ```
 
-
-
 这里的groupid就是你之前安装时指定的-Dgroupid的值，artifactid就是你安装时指定的-Dartifactid的值，version也一样。
 
 ## Druid数据源
@@ -97,8 +97,11 @@ Druid为Spring Boot项目提供了对应的starter：
 上面通过查看mybatis starter的隐性依赖发现，Spring Boot的数据源配置的默认类型是`org.apache.tomcat.jdbc.pool.Datasource`，为了使用Druid连接池，需要在application.yml下配置：
 
 ```
+#SpringBoot在2.0版本之后已经弃用server.context-path，而代替为server.servlet.context-path
 server:
-  context-path: /web
+  servlet:
+    context-path: /web
+  port: 8003
 
 spring:
   datasource:
