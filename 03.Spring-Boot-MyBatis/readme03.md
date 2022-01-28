@@ -335,11 +335,9 @@ public class TestController {
 }
 ```
 
-
-
 完整的项目目录如下图所示：
 
-![QQ截图20171204184527.png](https://mrbird.cc/img/QQ%E6%88%AA%E5%9B%BE20171204184527.png)
+![image-20220128215438475](C:\Users\yunqing3.wang\AppData\Roaming\Typora\typora-user-images\image-20220128215438475.png)
 
 启动项目访问：http://localhost:8080/web/querystudent?sno=001：
 
