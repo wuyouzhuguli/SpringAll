@@ -8,11 +8,11 @@
 <dependency>
     <groupId>org.mybatis.spring.boot</groupId>
     <artifactId>mybatis-spring-boot-starter</artifactId>
-    <version>1.3.1</version>
+    <version>2.3.4.RELEASE</version>
 </dependency>
 ```
 
-
+orapwd file=$ORACLE_HOME/dbs/orapw$ORACLE_SID password=gelc123 entries=5 force=y
 
 不同版本的Spring Boot和MyBatis版本对应不一样，具体可查看官方文档：http://www.mybatis.org/spring-boot-starter/mybatis-spring-boot-autoconfigure/。
 
@@ -347,6 +347,8 @@ public class TestController {
 
 查看SQL监控情况：
 
+http://localhost:8003/web/druid/
+
 ![QQ截图20171204184402.png](https://mrbird.cc/img/QQ%E6%88%AA%E5%9B%BE20171204184402.png)
 
-可看到其记录的就是刚刚访问[/querystudent](https://mrbird.cc/querystudent)得到的SQL。
+可看到其记录的就是刚刚访问/querystudent得到的SQL。
