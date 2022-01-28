@@ -8,8 +8,8 @@ spring:
       type: com.alibaba.druid.pool.DruidDataSource
       driver-class-name: oracle.jdbc.driver.OracleDriver
       url: jdbc:oracle:thin:@localhost:1521:ORCL
-      username: test
-      password: 123456
+      username: scott
+      password: admin12345
       # 连接池配置
       initial-size: 5
       min-idle: 5
