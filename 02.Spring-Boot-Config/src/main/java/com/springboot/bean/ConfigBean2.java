@@ -1,16 +1,17 @@
 package com.springboot.bean;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
 
 /**
  * @author: wyq
  * @create time: 2022/1/27
  * @description:
- * ProfileProperties类没有加@Component注解。
- * 在要使用ProfileProperties的地方使用@EnableConfigurationProperties注册我们的配置 bean：
+ * 通过@ConfigurationProperties读取配置信息并与bean绑定。
  */
-@ConfigurationProperties(prefix="mrbird.blog")
-public class ConfigBean {
+@Component
+@ConfigurationProperties(prefix="my.config.get")
+public class ConfigBean2 {
 	private String name;
 	private String title;
 	private String wholeTitle;

@@ -13,9 +13,12 @@ public class TestController {
 
 	@Autowired
 	private StudentService studentService;
-	
+
+	/**
+	 * http://localhost:8003/web/querystudent?sno=002
+	 */
 	@RequestMapping( value = "/querystudent", method = RequestMethod.GET)
 	public Student queryStudentBySno(String sno) {
-		return this.studentService.queryStudentBySno(sno);
+		return studentService.queryStudentBySno(sno);
 	}
 }
