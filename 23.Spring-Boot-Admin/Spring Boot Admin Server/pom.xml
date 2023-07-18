@@ -40,7 +40,7 @@
 		<dependency>
 			<groupId>de.codecentric</groupId>
 			<artifactId>spring-boot-admin-server</artifactId>
-			<version>1.5.7</version>
+			<version>3.1.2</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/de.codecentric/spring-boot-admin-server-ui -->
